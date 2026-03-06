@@ -1,6 +1,23 @@
 @import 'tailwindcss';
 
+:root{
+  --primary-bl:#0051ff;
+  --primary-red:#c10007;
+
+}
+
 body {
 
   font-family: Arial, Helvetica, sans-serif;
+}
+.title-text{
+  font-size: 1.25rem;
+  font-weight: 600;
+
+}
+.blue-txt{
+  color:var(--primary-bl);
+}
+.red-txt{
+  color:var(--primary-red)
 }
