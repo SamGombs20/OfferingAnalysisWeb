@@ -1,6 +1,6 @@
 export const RegistrationForm =()=>{
     return (
-        <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700">
+        <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">
             
             <div className="text-center mb-8 mt-4">
                 <p className="mb-1 text-2xl font-semibold">Sign Up</p>
@@ -15,7 +15,7 @@ export const RegistrationForm =()=>{
                     <input type="email" name="email" placeholder="Email" className="user-input"/>
                     <input type="text" name="username" placeholder="Username" className="user-input"/>
                     <input type="password" placeholder="Password" name="password" className="user-input"/>
-                    <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" />                     <button className="">Register</button>
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" />                     <button className="custom-btn w-5/6 mx-auto mt-8">Register</button>
                 </div>
             </form>
         </div>
