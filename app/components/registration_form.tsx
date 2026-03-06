@@ -8,7 +8,7 @@ export const RegistrationForm =()=>{
             </div>
             <form>
                 <div className="flex flex-col">
-                    <input type="text" placeholder="First name" />
+                    <input type="text" placeholder="First name" className="user-input"/>
                 </div>
             </form>
         </div>

@@ -3,7 +3,7 @@
 :root{
   --primary-bl:#0051ff;
   --primary-red:#c10007;
-
+  --light-bl:#0051ff75;
 }
 
 body {
@@ -21,4 +21,15 @@ body {
 
 .red-txt{
   color:var(--primary-red)
+}
+.user-input{
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--light-bl);
+  width:80%;
+  transition: all 0.3s ease-in-out;
+}
+.user-input:focus{
+  outline:none;
+  border: 1px solid var(--primary-bl);
 }
