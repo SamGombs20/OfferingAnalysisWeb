@@ -10,7 +10,11 @@ export const RegistrationForm =()=>{
                 <div className="flex flex-col">
                     <input type="text" placeholder="First name" className="user-input"/>
                     <input type="text" placeholder="Last name" name="lastName" className="user-input" />
-                    
+                    <input type="text" placeholder="Church name" name="church" className="user-input"/>
+                    <input type="number" name="phoneNumber" placeholder="Phone number" className="user-input"/>
+                    <input type="email" name="email" placeholder="Email" className="user-input"/>
+                    <input type="text" name="username" placeholder="Username" className="user-input"/>
+                    <input type="text" placeholder="Password" name="password" className="user-input"/>                     
                 </div>
             </form>
         </div>
