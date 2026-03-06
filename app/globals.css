@@ -18,6 +18,7 @@ body {
 .blue-txt{
   color:var(--primary-bl);
 }
+
 .red-txt{
   color:var(--primary-red)
 }
