@@ -1,10 +1,7 @@
 import * as z from 'zod';
+import { UserLoginSchema, UserRegisterSchema, UserSchema } from '../schemas/user';
 
 
-type User ={
-
-}
-type UserLogIn = {
-    username:string,
-    password:string
-}
+type User = z.infer<typeof UserSchema>
+type UserLogIn = z.infer<typeof UserLoginSchema>
+type UserRegister = z.infer<typeof UserRegisterSchema>
