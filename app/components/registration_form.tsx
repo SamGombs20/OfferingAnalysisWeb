@@ -15,7 +15,8 @@ export const RegistrationForm =()=>{
                     <input type="email" name="email" placeholder="Email" className="user-input"/>
                     <input type="text" name="username" placeholder="Username" className="user-input"/>
                     <input type="password" placeholder="Password" name="password" className="user-input"/>
-                    <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" />                     <button className="custom-btn w-5/6 mx-auto mt-8">Register</button>
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" />                     <button className="custom-btn w-5/6 
+                    mx-auto mt-8">Register</button>
                 </div>
             </form>
         </div>
