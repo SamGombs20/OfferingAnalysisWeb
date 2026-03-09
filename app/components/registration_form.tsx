@@ -19,37 +19,37 @@ export const RegistrationForm =()=>{
                 <p className="mb-1 text-2xl font-semibold">Sign Up</p>
                 <p className="italic">Create an account and start making analysis</p>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col">
-                    <div>
+                    <div className="input-div">
                         <input type="text" placeholder="First name" className="user-input"/>
                         {errors.firstName && <p>{errors.firstName.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="text" placeholder="Last name" name="lastName" className="user-input" />
                         {errors.lastName && <p>{errors.lastName.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="text" placeholder="Church name" name="church" className="user-input"/>
                         {errors.church && <p>{errors.church.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="text" name="phoneNumber" placeholder="Phone number" className="user-input"/>
                         {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="email" name="email" placeholder="Email" className="user-input"/>
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="text" name="username" placeholder="Username" className="user-input"/>
                         {errors.username && <p>{errors.username.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="password" placeholder="Password" name="password" className="user-input"/>
                         {errors.password && <p>{errors.password.message}</p>}
                     </div>
-                    <div>
+                    <div className="input-div">
                         <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" /> 
                     </div>
                     <button type="submit" className="custom-btn w-5/6 mx-auto mt-8">Register</button>

@@ -47,3 +47,7 @@ body {
   background-color: transparent;
   color: var(--primary-bl);
 }
+.input-div{
+  display: flex;
+  flex-direction: column;
+}
