@@ -1,20 +1,20 @@
 'use server'
 
-import { UserRegisterSchema } from "../schemas/user"
+import { registerUserApi } from "../api/auth"
+import { UserRegister, UserRegisterAPI } from "../types/global"
 
-export const registerUser = async(initialState:any,formData:FormData)=>{
-    const validatedFields = UserRegisterSchema.safeParse(
-        {
-           firstName:formData.get("firstName"),
-           lastName:formData.get("lastName"),
-           church:formData.get("church"),
-           phoneNumber:formData.get("phoneNumber"),
-           email:formData.get("email"),
-           username:formData.get("username"),
-           password:formData.get("password"),
-        }
-    )
-    if(!validatedFields.success){
-        console.log(validatedFields.error.flatten().fieldErrors)
-    }
+
+
+export const registerUser = async(user:UserRegister)=>{
+   const newUser:UserRegisterAPI = {
+    firstName:user.firstName,
+    lastName:user.lastName,
+    church:user.church,
+    phoneNumber:user.phoneNumber,
+    email:user.email,
+    username:user.username,
+    password:user.password,
+    role:"user"
+   }
+   await registerUserApi(newUser)
 }

@@ -4,14 +4,22 @@ import { useForm } from "react-hook-form";
 import { UserRegister } from "../types/global";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserRegisterSchema } from "../schemas/user";
+import { registerUser } from "../actions/auth";
+import { useState } from "react";
 
 export const RegistrationForm =()=>{
     const{register,handleSubmit,formState:{errors}} = useForm<UserRegister>({
         resolver:zodResolver(UserRegisterSchema)
     })
-    const onSubmit = (data:UserRegister)=>{
-        console.log(data)
-        console.log("Form submitted")
+    const [apiError, setApiError] = useState("")
+    const onSubmit = async (data:UserRegister)=>{
+        try{
+            setApiError("")
+            await registerUser(data)
+        }
+        catch(err:any){
+            setApiError(err.message)
+        }
     }
     return (
         <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">
@@ -53,7 +61,8 @@ export const RegistrationForm =()=>{
                     <div className="input-div">
                         <input type="password" placeholder="Confirm Password" className="user-input" /> 
                     </div>
-                    <button type="submit" className="custom-btn w-5/6 mx-auto mt-8">Register</button>
+                    {apiError && <p className="error-txt text-center mt-6">{apiError}</p>}
+                    <button type="submit" className="custom-btn w-5/6 mx-auto mt-4">Register</button>
                 </div>
             </form>
         </div>
