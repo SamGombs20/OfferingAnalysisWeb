@@ -11,6 +11,7 @@ export const RegistrationForm =()=>{
     })
     const onSubmit = (data:UserRegister)=>{
         console.log(data)
+        console.log("Form submitted")
     }
     return (
         <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">

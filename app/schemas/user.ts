@@ -8,7 +8,6 @@ export const UserSchema = z.object({
     phoneNumber:z.string().trim().length(10, "Phone number must be 10 characters long").regex(/^\d{10}$/, "Phone number must contain only digits!").startsWith("0", "Phone number must start with 0!"),
     email:z.string().email().toLowerCase(),
     username:z.string().trim().min(4, "Username must be at least 4 characters!"),
-    role:z.string(),
 })
 
 export const UserLoginSchema = z.object({
