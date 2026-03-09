@@ -23,34 +23,35 @@ export const RegistrationForm =()=>{
                 <div className="flex flex-col">
                     <div className="input-div">
                         <input type="text" placeholder="First name" className="user-input"/>
-                        {errors.firstName && <p>{errors.firstName.message}</p>}
+                        {errors.firstName && <p className="error-txt">{errors.firstName.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="text" placeholder="Last name" name="lastName" className="user-input" />
-                        {errors.lastName && <p>{errors.lastName.message}</p>}
+                        {errors.lastName && <p className="error-txt">{errors.lastName.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="text" placeholder="Church name" name="church" className="user-input"/>
-                        {errors.church && <p>{errors.church.message}</p>}
+                        {errors.church && <p className="error-txt">{errors.church.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="text" name="phoneNumber" placeholder="Phone number" className="user-input"/>
-                        {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
+                        {errors.phoneNumber && <p className="error-txt">{errors.phoneNumber.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="email" name="email" placeholder="Email" className="user-input"/>
-                        {errors.email && <p>{errors.email.message}</p>}
+                        {errors.email && <p className="error-txt">{errors.email.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="text" name="username" placeholder="Username" className="user-input"/>
-                        {errors.username && <p>{errors.username.message}</p>}
+                        {errors.username && <p className="error-txt">{errors.username.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="password" placeholder="Password" name="password" className="user-input"/>
-                        {errors.password && <p>{errors.password.message}</p>}
+                        {errors.password && <p className="error-txt">{errors.password.message}</p>}
                     </div>
                     <div className="input-div">
                         <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" /> 
+                        {errors.confirmPassword && <p className="error-txt">{errors.confirmPassword.message}</p>}
                     </div>
                     <button type="submit" className="custom-btn w-5/6 mx-auto mt-8">Register</button>
                 </div>

@@ -17,5 +17,6 @@ export const UserLoginSchema = z.object({
 })
 
 export const UserRegisterSchema = UserSchema.omit({id:true}).extend({
-    password:z.string().min(6)
+    password:z.string().min(6),
+    confirmPassword:z.string().min(6)
 })
