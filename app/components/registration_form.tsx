@@ -22,36 +22,35 @@ export const RegistrationForm =()=>{
             <form className="flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col">
                     <div className="input-div">
-                        <input type="text" placeholder="First name" className="user-input"/>
+                        <input type="text" {...register('firstName')} placeholder="First name" className="user-input"/>
                         {errors.firstName && <p className="error-txt">{errors.firstName.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="text" placeholder="Last name" name="lastName" className="user-input" />
+                        <input type="text" {...register('lastName')} placeholder="Last name" className="user-input" />
                         {errors.lastName && <p className="error-txt">{errors.lastName.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="text" placeholder="Church name" name="church" className="user-input"/>
+                        <input type="text" {...register('church')} placeholder="Church name" className="user-input"/>
                         {errors.church && <p className="error-txt">{errors.church.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="text" name="phoneNumber" placeholder="Phone number" className="user-input"/>
+                        <input type="text" {...register('phoneNumber')} placeholder="Phone number" className="user-input"/>
                         {errors.phoneNumber && <p className="error-txt">{errors.phoneNumber.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="email" name="email" placeholder="Email" className="user-input"/>
+                        <input type="email" {...register('email')} placeholder="Email" className="user-input"/>
                         {errors.email && <p className="error-txt">{errors.email.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="text" name="username" placeholder="Username" className="user-input"/>
+                        <input type="text" {...register('username')} placeholder="Username" className="user-input"/>
                         {errors.username && <p className="error-txt">{errors.username.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="password" placeholder="Password" name="password" className="user-input"/>
+                        <input type="password" {...register('password')} placeholder="Password" className="user-input"/>
                         {errors.password && <p className="error-txt">{errors.password.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password" className="user-input" /> 
-                        {errors.confirmPassword && <p className="error-txt">{errors.confirmPassword.message}</p>}
+                        <input type="password" placeholder="Confirm Password" className="user-input" /> 
                     </div>
                     <button type="submit" className="custom-btn w-5/6 mx-auto mt-8">Register</button>
                 </div>
