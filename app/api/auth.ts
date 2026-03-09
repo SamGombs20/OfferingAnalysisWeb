@@ -10,7 +10,8 @@ export const registerUserApi = async(user:UserRegisterAPI)=>{
         body:JSON.stringify(user)
     })
     if(res.ok){
-        return res.json()
+        const data = await res.json();
+        console.log(data);
     }
     else{
         if(res.status==400){
