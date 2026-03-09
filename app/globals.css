@@ -50,4 +50,9 @@ body {
 .input-div{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.error-txt{
+  color: var(--primary-red);
+  font-size: 0.7rem;
 }
