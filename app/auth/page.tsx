@@ -1,3 +1,4 @@
+import { LogInForm } from "../components/login_form";
 import { RegistrationForm } from "../components/registration_form"
 
 const AuthPage =()=>{
@@ -7,7 +8,10 @@ const AuthPage =()=>{
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
             </div>
-            <RegistrationForm/>
+            <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">
+                {/* <RegistrationForm/> */}
+                <LogInForm/>
+            </div>
         </div>
     )
 }
