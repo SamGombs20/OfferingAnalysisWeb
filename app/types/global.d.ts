@@ -7,3 +7,9 @@ type UserLogIn = z.infer<typeof UserLoginSchema>
 type UserRegister = z.infer<typeof UserRegisterSchema>
 
 type UserRegisterAPI = z.infer<typeof UserRegisterApiSchema>
+
+type Token ={
+    accessToken:string,
+    refreshToken:string,
+    tokenType:string
+}

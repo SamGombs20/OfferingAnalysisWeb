@@ -3,12 +3,24 @@ import { useForm } from "react-hook-form";
 import { UserLogIn } from "../types/global";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserLoginSchema } from "../schemas/user";
+import { useState } from "react";
+import { loginUser } from "../actions/auth";
 
 export const LogInForm = () => {
     const {register, handleSubmit,formState:{errors}} = useForm<UserLogIn>({
-        resolver:zodResolver(UserLoginSchema)
+        resolver:zodResolver(UserLoginSchema),
+        mode:'onChange'
     })
-    const onSubmit=(data:UserLogIn)=>{
+    const [apiErrors, setApiErrors] = useState('')
+    const onSubmit= async(data:UserLogIn)=>{
+        setApiErrors('')
+        try{
+            const res = await loginUser(data)
+            console.log(res)
+        }
+        catch(err:any){
+            setApiErrors(err.message)
+        }
         console.log("no errors you can call the api")
     }
   return (
@@ -26,6 +38,7 @@ export const LogInForm = () => {
             <input type="password" {...register("password")} className={`user-input ${errors.password?.message?'error-inp':''}`} placeholder="Password" />
             {errors.password && <p className="error-txt">{errors.password.message}</p>}
         </div>
+        {apiErrors && <p className="error-txt text-center mt-4">{apiErrors}</p>}
         <button className="custom-btn w-5/6 mx-auto mt-8">Log in</button>
       </form>
     </>

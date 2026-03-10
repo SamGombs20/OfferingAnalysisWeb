@@ -1,7 +1,7 @@
 'use server'
 
-import { registerUserApi } from "../api/auth"
-import { UserRegister, UserRegisterAPI } from "../types/global"
+import { loginUserApi, registerUserApi } from "../api/auth"
+import { UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
 
 
 
@@ -17,4 +17,7 @@ export const registerUser = async(user:UserRegister)=>{
     role:"user"
    }
    return await registerUserApi(newUser)
+}
+export const loginUser = async(user:UserLogIn)=>{
+   return await loginUserApi(user)
 }
