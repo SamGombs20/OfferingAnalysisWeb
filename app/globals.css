@@ -4,6 +4,7 @@
   --primary-bl:#0051ff;
   --primary-red:#c10007;
   --light-bl:#0051ff75;
+  --lighter-bl:#0051ff42;
 }
 
 body {
@@ -62,11 +63,12 @@ body {
 .toggle-btn{
   color: var(--primary-bl);
   background-color: transparent;
+  border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  padding: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
 }
 .toggle-btn:hover{
-  background-color: var(--primary-bl);
-  color: white;
+  background-color: var(--lighter-bl);
 }

@@ -19,10 +19,10 @@ const AuthPage =()=>{
                 {isLogin ? <LogInForm/>:<RegistrationForm/>}
             </div>
             <div className="mt-8">
-                {isLogin? (<div className="flex gap-2">
+                {isLogin? (<div className="flex gap-1 items-center">
                     <p>Don't have an account?</p>
                     <button onClick={toggleForm} className="toggle-btn">Register</button>
-                </div>):(<div className="flex gap-2">
+                </div>):(<div className="flex gap-1 items-center">
                     <p>Already have an account?</p>
                     <button onClick={toggleForm} className="toggle-btn">Sign in</button>
                 </div>)}
