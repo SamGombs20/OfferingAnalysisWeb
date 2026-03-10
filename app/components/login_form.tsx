@@ -19,11 +19,11 @@ export const LogInForm = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         <div className="input-div">
-            <input type="text" {...register("username")} className="user-input" placeholder="Username" />
+            <input type="text" {...register("username")} className={`user-input ${errors.username?.message ?'error-inp' : ''}`} placeholder="Username" />
             {errors.username && <p className="error-txt">{errors.username.message}</p>}
         </div>
         <div className="input-div">
-            <input type="password" {...register("password")} className="user-input" placeholder="Password" />
+            <input type="password" {...register("password")} className={`user-input ${errors.password?.message?'error-inp':''}`} placeholder="Password" />
             {errors.password && <p className="error-txt">{errors.password.message}</p>}
         </div>
         <button className="custom-btn w-5/6 mx-auto mt-8">Log in</button>
