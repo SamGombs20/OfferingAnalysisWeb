@@ -16,7 +16,8 @@ export const RegistrationForm =()=>{
     const onSubmit = async (data:UserRegister)=>{
         try{
             setApiError("")
-            await registerUser(data)
+            const res =await registerUser(data)
+            console.log(res)
         }
         catch(err:any){
             setApiError(err.message)

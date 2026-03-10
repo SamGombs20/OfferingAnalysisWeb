@@ -16,5 +16,5 @@ export const registerUser = async(user:UserRegister)=>{
     password:user.password,
     role:"user"
    }
-   await registerUserApi(newUser)
+   return await registerUserApi(newUser)
 }
