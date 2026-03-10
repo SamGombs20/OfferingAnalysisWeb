@@ -1,16 +1,30 @@
+'use client'
+import { useForm } from "react-hook-form";
+import { UserLogIn } from "../types/global";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { UserLoginSchema } from "../schemas/user";
+
 export const LogInForm = () => {
+    const {register, handleSubmit,formState:{errors}} = useForm<UserLogIn>({
+        resolver:zodResolver(UserLoginSchema)
+    })
+    const onSubmit=(data:UserLogIn)=>{
+        console.log("no errors you can call the api")
+    }
   return (
     <>
       <div className="text-center mb-8 mt-4">
         <p className="mb-1 text-2xl font-semibold">Sign In</p>
         <p className="italic">Sign in to your account to continue with analysis</p>
       </div>
-      <form className="flex flex-col">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         <div className="input-div">
-            <input type="text" className="user-input" placeholder="Username" />
+            <input type="text" {...register("username")} className="user-input" placeholder="Username" />
+            {errors.username && <p className="error-txt">{errors.username.message}</p>}
         </div>
         <div className="input-div">
-            <input type="password" className="user-input" placeholder="Password" />
+            <input type="password" {...register("password")} className="user-input" placeholder="Password" />
+            {errors.password && <p className="error-txt">{errors.password.message}</p>}
         </div>
         <button className="custom-btn w-5/6 mx-auto mt-8">Log in</button>
       </form>
