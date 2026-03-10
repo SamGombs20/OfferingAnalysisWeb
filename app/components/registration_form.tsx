@@ -11,6 +11,7 @@ export const RegistrationForm =()=>{
     const{register,handleSubmit,formState:{errors}} = useForm<UserRegister>({
         resolver:zodResolver(UserRegisterSchema)
     })
+    
     const [apiError, setApiError] = useState("")
     const onSubmit = async (data:UserRegister)=>{
         try{
@@ -59,7 +60,8 @@ export const RegistrationForm =()=>{
                         {errors.password && <p className="error-txt">{errors.password.message}</p>}
                     </div>
                     <div className="input-div">
-                        <input type="password" placeholder="Confirm Password" className="user-input" /> 
+                        <input type="password" placeholder="Confirm Password" {...register('confirmPassword')} className="user-input" /> 
+                        {errors.confirmPassword && <p className="error-txt">{errors.confirmPassword.message}</p>}
                     </div>
                     {apiError && <p className="error-txt text-center mt-6">{apiError}</p>}
                     <button type="submit" className="custom-btn w-5/6 mx-auto mt-4">Register</button>

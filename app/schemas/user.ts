@@ -17,4 +17,12 @@ export const UserLoginSchema = z.object({
 
 export const UserRegisterSchema = UserSchema.omit({id:true}).extend({
     password:z.string().min(6, "Password must be at least 6 characters!"),
+    confirmPassword:z.string()
+}).refine((data)=>data.password===data.confirmPassword,{
+    message:"Passwords do not match!",
+    path:["confirmPassword"]
+})
+export const UserRegisterApiSchema = UserSchema.omit({id:true}).extend({
+    password:z.string().min(6, "Password mut be at least 6 characters!"),
+    role:z.string()
 })

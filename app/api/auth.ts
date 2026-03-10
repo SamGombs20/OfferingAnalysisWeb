@@ -1,7 +1,7 @@
-import { UserRegisterAPI } from "../types/global";
+import { User, UserRegisterAPI } from "../types/global";
 const authAPI = "http://localhost:8000/auth"
 
-export const registerUserApi = async(user:UserRegisterAPI)=>{
+export const registerUserApi = async(user:UserRegisterAPI):Promise<User|void>=>{
     const res = await fetch(`${authAPI}/register`,{
         method:'POST',
         headers:{
@@ -11,7 +11,7 @@ export const registerUserApi = async(user:UserRegisterAPI)=>{
     })
     if(res.ok){
         const data = await res.json();
-        console.log(data);
+        return data
     }
     else{
         if(res.status==400){
