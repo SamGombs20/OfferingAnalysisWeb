@@ -59,3 +59,14 @@ body {
   color: var(--primary-red);
   font-size: 1rem;
 }
+.toggle-btn{
+  color: var(--primary-bl);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 0.3rem;
+}
+.toggle-btn:hover{
+  background-color: var(--primary-bl);
+  color: white;
+}
