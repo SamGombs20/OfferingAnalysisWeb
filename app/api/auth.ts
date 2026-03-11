@@ -2,6 +2,8 @@ import { cookies } from "next/headers";
 import { Token, User, UserLogIn, UserRegisterAPI } from "../types/global";
 import { loginUser } from "../actions/auth";
 const authAPI = "http://localhost:8000/auth";
+const userAPI = "http://localhost:8000/users"
+
 
 export const registerUserApi = async (
   user: UserRegisterAPI,
@@ -58,3 +60,19 @@ export const loginUserApi = async (user: UserLogIn) => {
     }
   }
 };
+
+export const getAuthenticatedUser = async()=>{
+    const res = await fetch(`${userAPI}/me`,{
+        method:"GET",
+        headers:{
+            Authorization:`Bearer ${(await cookies()).get('session_token')}`
+        }
+    })
+    if(res.ok){
+        console.log(res.json())
+    }
+    else{
+        throw new Error("Failed to get authenticated user")
+    }
+}
+
