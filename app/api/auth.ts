@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { Token, User, UserLogIn, UserRegisterAPI } from "../types/global";
 const authAPI = "http://localhost:8000/auth";
 
@@ -36,7 +37,11 @@ export const loginUserApi = async (user: UserLogIn) => {
   });
   if(res.ok){
      const data = await res.json()
-     document.cookie =`session_token=${data.access_token}; path=/`
+     ;(await cookies()).set("session_token", data.access_token,{
+        httpOnly:true,
+        secure:true,
+        path:'/'
+     })
   }
   else{
     if(res.status===404){
