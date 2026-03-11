@@ -1,5 +1,6 @@
 'use server'
 
+import { redirect } from "next/navigation"
 import { loginUserApi, registerUserApi } from "../api/auth"
 import { UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
 
@@ -20,4 +21,5 @@ export const registerUser = async(user:UserRegister)=>{
 }
 export const loginUser = async(user:UserLogIn)=>{
     await loginUserApi(user)
+    redirect('/dashboard')
 }

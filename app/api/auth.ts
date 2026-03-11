@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { Token, User, UserLogIn, UserRegisterAPI } from "../types/global";
+import { loginUser } from "../actions/auth";
 const authAPI = "http://localhost:8000/auth";
 
 export const registerUserApi = async (
@@ -14,6 +15,11 @@ export const registerUserApi = async (
   });
   if (res.ok) {
     const data = await res.json();
+    const logIn:UserLogIn = {
+        username:user.username,
+        password:user.password
+    }
+    await loginUser(logIn)
     return data;
   } else {
     if (res.status == 400) {

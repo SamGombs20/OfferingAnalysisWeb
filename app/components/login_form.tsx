@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UserLoginSchema } from "../schemas/user";
 import { useState } from "react";
 import { loginUser } from "../actions/auth";
-import { redirect } from "next/navigation";
 
 export const LogInForm = () => {
     const {register, handleSubmit,formState:{errors}} = useForm<UserLogIn>({
@@ -21,7 +20,6 @@ export const LogInForm = () => {
         catch(err:any){
             setApiErrors(err.message)
         }
-        redirect('/dashboard')
     }
   return (
     <>
