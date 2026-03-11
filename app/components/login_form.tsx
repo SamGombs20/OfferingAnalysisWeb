@@ -15,8 +15,7 @@ export const LogInForm = () => {
     const onSubmit= async(data:UserLogIn)=>{
         setApiErrors('')
         try{
-            const res = await loginUser(data)
-            console.log(res)
+            await loginUser(data)
         }
         catch(err:any){
             setApiErrors(err.message)

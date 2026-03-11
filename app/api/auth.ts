@@ -22,7 +22,7 @@ export const registerUserApi = async (
     }
   }
 };
-export const loginUserApi = async (user: UserLogIn):Promise<Token|void> => {
+export const loginUserApi = async (user: UserLogIn) => {
   const body = new URLSearchParams();
   body.append("username", user.username);
   body.append("password", user.password);
@@ -35,7 +35,8 @@ export const loginUserApi = async (user: UserLogIn):Promise<Token|void> => {
     body: body.toString(),
   });
   if(res.ok){
-    return await res.json()
+     const data = await res.json()
+     document.cookie =`session_token=${data.access_token}; path=/`
   }
   else{
     if(res.status===404){

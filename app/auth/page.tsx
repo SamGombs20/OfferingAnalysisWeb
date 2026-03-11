@@ -4,7 +4,7 @@ import { LogInForm } from "../components/login_form";
 import { RegistrationForm } from "../components/registration_form"
 
 const AuthPage =()=>{
-    const[isLogin, setIsLogin] = useState(false)
+    const[isLogin, setIsLogin] = useState(true)
 
     const toggleForm = ()=>{
         setIsLogin(!isLogin)

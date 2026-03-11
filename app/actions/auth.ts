@@ -19,5 +19,5 @@ export const registerUser = async(user:UserRegister)=>{
    return await registerUserApi(newUser)
 }
 export const loginUser = async(user:UserLogIn)=>{
-   return await loginUserApi(user)
+    await loginUserApi(user)
 }
