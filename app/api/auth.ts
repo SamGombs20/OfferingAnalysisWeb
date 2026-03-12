@@ -1,6 +1,6 @@
-import { cookies } from "next/headers";
-import { Token, User, UserLogIn, UserRegisterAPI } from "../types/global";
+import {  User, UserLogIn, UserRegisterAPI } from "../types/global";
 import { loginUser } from "../actions/auth";
+import { setAuthCookies } from "@/utils/utils";
 const authAPI = "http://localhost:8000/auth";
 const userAPI = "http://localhost:8000/users"
 
@@ -45,14 +45,7 @@ export const loginUserApi = async (user: UserLogIn) => {
   });
   if(res.ok){
      const data = await res.json()
-     ;(await cookies()).set("session_token", data.access_token,{
-        httpOnly:true,
-        secure:true
-     })
-     ;(await cookies()).set('refresh_token', data.refresh_token,{
-        httpOnly:true,
-        secure:true
-     })
+     setAuthCookies(data.access_token, data.refresh_token)
   }
   else{
     if(res.status===404){
@@ -64,39 +57,29 @@ export const loginUserApi = async (user: UserLogIn) => {
   }
 };
 
-export const refreshToken = async()=>{
-    const res = await fetch(`${authAPI}/refresh`,{
-        method:'POST',
-        headers:{
-            "Content-Type":'application/json'
-        },
-        body:JSON.stringify((await cookies()).get('refresh_token')?.value)
-    })
-    if(res.ok){
-        const data = await res.json()
-        ;(await cookies()).set('session_token', data.access_token,{
-            httpOnly:true,
-            secure:true
-        })
-        ;(await cookies()).set('refresh_token', data.refresh_token,{
-            httpOnly:true,
-            secure:true
-        })
-    }
-}
+// export const refreshToken = async()=>{
+//     const res = await fetch(`${authAPI}/refresh`,{
+//         method:'POST',
+//         credentials:'include'
+//     })
+//     if(res.ok){
+//         const data = await res.json()
+       
+//     }
+// }
 
-export const getAuthenticatedUser = async()=>{
-    const res = await fetch(`${userAPI}/me`,{
-        method:"GET",
-        headers:{
-            Authorization:`Bearer ${(await cookies()).get('session_token')?.value}`
-        }
-    })
-    if(res.ok){
-        console.log(await res.json())
-    }
-    else{
-        throw new Error("Failed to get authenticated user")
-    }
-}
+// export const getAuthenticatedUser = async()=>{
+//     const res = await fetch(`${userAPI}/me`,{
+//         method:"GET",
+//         headers:{
+//             Authorization:`Bearer ${(await cookies()).get('session_token')?.value}`
+//         }
+//     })
+//     if(res.ok){
+//         console.log(await res.json())
+//     }
+//     else{
+//         throw new Error("Failed to get authenticated user")
+//     }
+// }
 
