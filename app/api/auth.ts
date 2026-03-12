@@ -64,10 +64,7 @@ export const loginUserApi = async (user: UserLogIn) => {
 export const refreshToken = async()=>{
     const res = await fetch(`${authAPI}/refresh`,{
         method:'POST',
-        headers:{
-            "Content-Type":'application/json'
-        },
-        body:JSON.stringify((await cookies()).get('refresh_token')?.value)
+        credentials:'include'
     })
     if(res.ok){
         const data = await res.json()
