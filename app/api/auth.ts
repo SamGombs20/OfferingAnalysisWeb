@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { Token, User, UserLogIn, UserRegisterAPI } from "../types/global";
+import {  User, UserLogIn, UserRegisterAPI } from "../types/global";
 import { loginUser } from "../actions/auth";
 import { accessOptions, refreshOptions } from "@/utils/utils";
 const authAPI = "http://localhost:8000/auth";

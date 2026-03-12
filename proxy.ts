@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const proxy =(request:NextRequest)=>{
-    const token = request.cookies.get('session_token')?.value;
-    if(!token){
+    const accessToken = request.cookies.get('session_token')?.value;
+    if(!accessToken){
         return NextResponse.redirect(new URL('/auth', request.url))
     }
     return NextResponse.next()
