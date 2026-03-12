@@ -47,8 +47,11 @@ export const loginUserApi = async (user: UserLogIn) => {
      const data = await res.json()
      ;(await cookies()).set("session_token", data.access_token,{
         httpOnly:true,
-        secure:true,
-        path:'/'
+        secure:true
+     })
+     ;(await cookies()).set('refresh_token', data.refresh_token,{
+        httpOnly:true,
+        secure:true
      })
   }
   else{
@@ -61,15 +64,36 @@ export const loginUserApi = async (user: UserLogIn) => {
   }
 };
 
+export const refreshToken = async()=>{
+    const res = await fetch(`${authAPI}/refresh`,{
+        method:'POST',
+        headers:{
+            "Content-Type":'application/json'
+        },
+        body:JSON.stringify((await cookies()).get('refresh_token')?.value)
+    })
+    if(res.ok){
+        const data = await res.json()
+        ;(await cookies()).set('session_token', data.access_token,{
+            httpOnly:true,
+            secure:true
+        })
+        ;(await cookies()).set('refresh_token', data.refresh_token,{
+            httpOnly:true,
+            secure:true
+        })
+    }
+}
+
 export const getAuthenticatedUser = async()=>{
     const res = await fetch(`${userAPI}/me`,{
         method:"GET",
         headers:{
-            Authorization:`Bearer ${(await cookies()).get('session_token')}`
+            Authorization:`Bearer ${(await cookies()).get('session_token')?.value}`
         }
     })
     if(res.ok){
-        console.log(res.json())
+        console.log(await res.json())
     }
     else{
         throw new Error("Failed to get authenticated user")
