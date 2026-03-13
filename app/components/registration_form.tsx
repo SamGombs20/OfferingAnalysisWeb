@@ -15,17 +15,17 @@ export const RegistrationForm = () => {
     formState: { errors },
   } = useForm<UserRegister>({
     resolver: zodResolver(UserRegisterSchema),
-    mode:'onChange'
+    mode: "onChange",
   });
-  const {signUp} = useAuthStore()
-  const router = useRouter()
+  const { signUp } = useAuthStore();
+  const router = useRouter();
 
   const [apiError, setApiError] = useState("");
   const onSubmit = async (data: UserRegister) => {
+    setApiError("");
     try {
-      setApiError("");
-      await signUp(data)
-      router.push('dashboard')
+      await signUp(data);
+      router.push("dashboard");
     } catch (err: any) {
       setApiError(err.message);
     }
@@ -43,7 +43,7 @@ export const RegistrationForm = () => {
               type="text"
               {...register("firstName")}
               placeholder="First name"
-              className={`user-input ${errors.firstName?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.firstName?.message ? "error-inp" : ""}`}
             />
             {errors.firstName && (
               <p className="error-txt">{errors.firstName.message}</p>
@@ -54,7 +54,7 @@ export const RegistrationForm = () => {
               type="text"
               {...register("lastName")}
               placeholder="Last name"
-              className={`user-input ${errors.lastName?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.lastName?.message ? "error-inp" : ""}`}
             />
             {errors.lastName && (
               <p className="error-txt">{errors.lastName.message}</p>
@@ -65,7 +65,7 @@ export const RegistrationForm = () => {
               type="text"
               {...register("church")}
               placeholder="Church name"
-              className={`user-input ${errors.church?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.church?.message ? "error-inp" : ""}`}
             />
             {errors.church && (
               <p className="error-txt">{errors.church.message}</p>
@@ -76,7 +76,7 @@ export const RegistrationForm = () => {
               type="text"
               {...register("phoneNumber")}
               placeholder="Phone number"
-              className={`user-input ${errors.phoneNumber?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.phoneNumber?.message ? "error-inp" : ""}`}
             />
             {errors.phoneNumber && (
               <p className="error-txt">{errors.phoneNumber.message}</p>
@@ -87,7 +87,7 @@ export const RegistrationForm = () => {
               type="email"
               {...register("email")}
               placeholder="Email"
-              className={`user-input ${errors.email?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.email?.message ? "error-inp" : ""}`}
             />
             {errors.email && (
               <p className="error-txt">{errors.email.message}</p>
@@ -98,7 +98,7 @@ export const RegistrationForm = () => {
               type="text"
               {...register("username")}
               placeholder="Username"
-              className={`user-input ${errors.username?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.username?.message ? "error-inp" : ""}`}
             />
             {errors.username && (
               <p className="error-txt">{errors.username.message}</p>
@@ -109,7 +109,7 @@ export const RegistrationForm = () => {
               type="password"
               {...register("password")}
               placeholder="Password"
-              className={`user-input ${errors.password?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.password?.message ? "error-inp" : ""}`}
             />
             {errors.password && (
               <p className="error-txt">{errors.password.message}</p>
@@ -120,7 +120,7 @@ export const RegistrationForm = () => {
               type="password"
               placeholder="Confirm Password"
               {...register("confirmPassword")}
-              className={`user-input ${errors.confirmPassword?.message ? 'error-inp':''}`}
+              className={`user-input ${errors.confirmPassword?.message ? "error-inp" : ""}`}
             />
             {errors.confirmPassword && (
               <p className="error-txt">{errors.confirmPassword.message}</p>
