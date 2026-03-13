@@ -14,14 +14,14 @@ export const RegistrationForm = () => {
     formState: { errors },
   } = useForm<UserRegister>({
     resolver: zodResolver(UserRegisterSchema),
+    mode:'onChange'
   });
 
   const [apiError, setApiError] = useState("");
   const onSubmit = async (data: UserRegister) => {
     try {
       setApiError("");
-      const res = await registerUser(data);
-      console.log(res);
+      await registerUser(data);
     } catch (err: any) {
       setApiError(err.message);
     }

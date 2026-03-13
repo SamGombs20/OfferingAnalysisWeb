@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation"
 import {  getAuthenticatedUser, loginUserApi, registerUserApi } from "../api/auth"
-import { UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
+import { User, UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
 
 
 
@@ -17,10 +17,11 @@ export const registerUser = async(user:UserRegister)=>{
     password:user.password,
     role:"user"
    }
-   return await registerUserApi(newUser)
+   await registerUserApi(newUser)
 }
-export const loginUser = async(user:UserLogIn)=>{
+export const loginUser = async(user:UserLogIn):Promise<User>=>{
     await loginUserApi(user)
-    await getAuthenticatedUser()
+    const authenticatedUser =await getAuthenticatedUser()
     redirect('/dashboard')
+    return authenticatedUser;
 }
