@@ -5,9 +5,7 @@ import { accessOptions, refreshOptions } from "@/utils/utils";
 const authAPI = "http://localhost:8000/auth";
 const userAPI = "http://localhost:8000/users";
 
-export const registerUserApi = async (
-  user: UserRegisterAPI,
-):Promise<User> => {
+export const registerUserApi = async (user: UserRegisterAPI): Promise<User> => {
   const res = await fetch(`${authAPI}/register`, {
     method: "POST",
     headers: {
@@ -22,7 +20,7 @@ export const registerUserApi = async (
       password: user.password,
     };
     await loginUser(logIn);
-    return data
+    return data;
   } else {
     if (res.status == 400) {
       throw new Error("User already has an account, sign in instead!");
@@ -68,7 +66,7 @@ export const refreshToken = async () => {
   }
 };
 
-export const getAuthenticatedUser = async ():Promise<User> => {
+export const getAuthenticatedUser = async (): Promise<User> => {
   const res = await fetch(`${userAPI}/me`, {
     method: "GET",
     headers: {
@@ -76,7 +74,7 @@ export const getAuthenticatedUser = async ():Promise<User> => {
     },
   });
   if (res.ok) {
-    const data = await res.json()
+    const data = await res.json();
     return data;
   } else {
     throw new Error("Failed to get authenticated user");
