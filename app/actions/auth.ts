@@ -6,7 +6,7 @@ import { User, UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
 
 
 
-export const registerUser = async(user:UserRegister)=>{
+export const registerUser = async(user:UserRegister):Promise<User>=>{
    const newUser:UserRegisterAPI = {
     firstName:user.firstName,
     lastName:user.lastName,
@@ -17,7 +17,7 @@ export const registerUser = async(user:UserRegister)=>{
     password:user.password,
     role:"user"
    }
-   await registerUserApi(newUser)
+   return await registerUserApi(newUser)
 }
 export const loginUser = async(user:UserLogIn):Promise<User>=>{
     await loginUserApi(user)

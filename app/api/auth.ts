@@ -7,7 +7,7 @@ const userAPI = "http://localhost:8000/users";
 
 export const registerUserApi = async (
   user: UserRegisterAPI,
-) => {
+):Promise<User> => {
   const res = await fetch(`${authAPI}/register`, {
     method: "POST",
     headers: {
@@ -22,6 +22,7 @@ export const registerUserApi = async (
       password: user.password,
     };
     await loginUser(logIn);
+    return data
   } else {
     if (res.status == 400) {
       throw new Error("User already has an account, sign in instead!");
