@@ -22,6 +22,5 @@ export const registerUser = async(user:UserRegister)=>{
 export const loginUser = async(user:UserLogIn):Promise<User>=>{
     await loginUserApi(user)
     const authenticatedUser =await getAuthenticatedUser()
-    redirect('/dashboard')
-    return authenticatedUser;
+    return authenticatedUser
 }

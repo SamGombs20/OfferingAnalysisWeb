@@ -6,6 +6,7 @@ import { UserLoginSchema } from "../schemas/user";
 import { useState } from "react";
 import { useAuthStore } from "../lib/store";
 import { loginUser } from "../actions/auth";
+import { useRouter } from "next/navigation";
 
 export const LogInForm = () => {
   const {
@@ -17,12 +18,14 @@ export const LogInForm = () => {
     mode: "onChange",
   });
   const { logIn } = useAuthStore();
+  const router = useRouter()
   const [apiErrors, setApiErrors] = useState("");
   const onSubmit = async (data: UserLogIn) => {
     setApiErrors("");
     try {
       const user = await loginUser(data)
-      await logIn(user);
+      logIn(user);
+      router.push('/dashboard')
     } catch (err: any) {
       setApiErrors(err.message);
     }
