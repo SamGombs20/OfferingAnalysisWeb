@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UserLoginSchema } from "../schemas/user";
 import { useState } from "react";
 import { useAuthStore } from "../lib/store";
-import { loginUser } from "../actions/auth";
 import { useRouter } from "next/navigation";
 
 export const LogInForm = () => {
@@ -23,8 +22,7 @@ export const LogInForm = () => {
   const onSubmit = async (data: UserLogIn) => {
     setApiErrors("");
     try {
-      const user = await loginUser(data)
-      logIn(user);
+      await logIn(data);
       router.push('/dashboard')
     } catch (err: any) {
       setApiErrors(err.message);

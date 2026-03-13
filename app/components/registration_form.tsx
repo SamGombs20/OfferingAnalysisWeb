@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { UserRegister } from "../types/global";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserRegisterSchema } from "../schemas/user";
-import { registerUser } from "../actions/auth";
 import { useState } from "react";
 import { useAuthStore } from "../lib/store";
 import { useRouter } from "next/navigation";
@@ -18,16 +17,15 @@ export const RegistrationForm = () => {
     resolver: zodResolver(UserRegisterSchema),
     mode:'onChange'
   });
-  const {logIn} = useAuthStore()
+  const {signUp} = useAuthStore()
   const router = useRouter()
 
   const [apiError, setApiError] = useState("");
   const onSubmit = async (data: UserRegister) => {
     try {
       setApiError("");
-      const user = await registerUser(data);
-      logIn(user)
-      router.push('/dashboard')
+      await signUp(data)
+      router.push('dashboard')
     } catch (err: any) {
       setApiError(err.message);
     }

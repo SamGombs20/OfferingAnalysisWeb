@@ -1,12 +1,13 @@
 import { create } from "zustand"
-import { User, UserLogIn } from "../types/global"
+import { User, UserLogIn, UserRegister } from "../types/global"
 import { persist } from "zustand/middleware"
-import { logOutUser } from "../actions/auth"
+import { loginUser, logOutUser, registerUser } from "../actions/auth"
 
 type AuthState ={
     user:User|null,
     loading:boolean,
-    logIn:(userIn:User)=>void,
+    signUp:(user:UserRegister)=>void;
+    logIn:(userIn:UserLogIn)=>void,
     logOut:()=>void
 }
 export const useAuthStore = create<AuthState>()(
@@ -14,11 +15,16 @@ export const useAuthStore = create<AuthState>()(
         (set)=>({
             user:null,
             loading:false,
-            logIn:(userIn:User)=>{
-                set({user:userIn})
+            signUp:async(user:UserRegister)=>{
+               const authUser= await registerUser(user)
+               set({user:authUser})
+            },
+            logIn:async (userIn:UserLogIn)=>{
+                const authUser=await loginUser(userIn)
+                set({user:authUser})
 
             },
-            logOut:async()=>{
+            logOut:async ()=>{
                 await logOutUser()
                 set({user:null})
             }
