@@ -3,6 +3,8 @@
 import { redirect } from "next/navigation"
 import {  getAuthenticatedUser, loginUserApi, registerUserApi } from "../api/auth"
 import { User, UserLogIn, UserRegister, UserRegisterAPI } from "../types/global"
+import { cookies } from "next/headers"
+import { refresh } from "next/cache"
 
 
 
@@ -23,4 +25,12 @@ export const loginUser = async(user:UserLogIn):Promise<User>=>{
     await loginUserApi(user)
     const authenticatedUser =await getAuthenticatedUser()
     return authenticatedUser
+}
+export const logOutUser=async()=>{
+    const allCookies = (await cookies()).getAll()
+
+    for (const cookie of allCookies){
+        (await cookies()).delete(cookie.name)
+    }
+    redirect('/auth')
 }

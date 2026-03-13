@@ -2,10 +2,11 @@
 import { useAuthStore } from "../lib/store";
 
 const DashboardPage=()=>{
-    const {user} = useAuthStore()
+    const {user, logOut} = useAuthStore()
     return(
         <div>
             <p>Welcome {user?.firstName}</p>
+            <button onClick={logOut}>LogOut</button>
         </div>
     );
 }
