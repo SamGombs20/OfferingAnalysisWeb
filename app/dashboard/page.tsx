@@ -1,7 +1,11 @@
+'use client'
+import { useAuthStore } from "../lib/store";
+
 const DashboardPage=()=>{
+    const {user} = useAuthStore()
     return(
         <div>
-            <p>User dashboard</p>
+            <p>Welcome {user?.firstName}</p>
         </div>
     );
 }
