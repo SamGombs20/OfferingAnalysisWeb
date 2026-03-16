@@ -20,11 +20,13 @@ const Sidebar=()=>{
                 <p className="red-txt">Analysis</p>
             </div>
 
-            <nav className="mt-6 px-3 space-y-1">
+            <nav className="flex flex-col mt-6 px-3 space-y-1">
                 {navItems.map((item)=>{
                     const isActive = pathName===item.href
                     return(
-                        <Link key={item.href} href={item.href}></Link>
+                        <Link key={item.href} href={item.href}>
+                            {item.label}
+                        </Link>
                     )
                 })}
             </nav>
