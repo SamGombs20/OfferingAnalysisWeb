@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -18,6 +19,15 @@ const Sidebar=()=>{
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
             </div>
+
+            <nav className="mt-6 px-3 space-y-1">
+                {navItems.map((item)=>{
+                    const isActive = pathName===item.href
+                    return(
+                        <Link key={item.href} href={item.href}></Link>
+                    )
+                })}
+            </nav>
         </aside>
     );
 }
