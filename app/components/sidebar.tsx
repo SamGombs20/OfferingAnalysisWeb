@@ -30,7 +30,7 @@ const Sidebar = () => {
         <div className="fixed inset-0 backdrop-blur-sm z-30 lg:hidden" />
       )}
       <aside
-        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-70 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
+        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-65 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
       >
         <nav className="flex flex-col mt-6 px-3 space-y-1">
           {navItems.map((item) => {
@@ -62,7 +62,7 @@ const Sidebar = () => {
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <button
             onClick={logOut}
-            className="border text-white bg-red-700 rounded-3xl flex items-center px-4 py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full"
+            className="border text-white bg-red-700 rounded-3xl flex items-center justify-center py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full"
           >
             <svg
               className="w-5 h-5 mr-3"
