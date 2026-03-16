@@ -36,7 +36,7 @@ const Sidebar = () => {
         <div>
             <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 hover:bg-gray-800 transition-all duration-300 ease-in-out"
+            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full  hover:bg-blue-200 text-blue-800 transition-all duration-300 ease-in-out"
             title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             <svg 
