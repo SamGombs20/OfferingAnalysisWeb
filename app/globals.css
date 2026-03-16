@@ -72,3 +72,10 @@ body {
 .toggle-btn:hover{
   background-color: var(--lighter-bl);
 }
+.active-link{
+  background-color: var(--lighter-bl);
+  color: var(--primary-bl);
+}
+.nav-icon{
+  
+}

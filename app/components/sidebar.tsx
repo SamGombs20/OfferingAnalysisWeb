@@ -1,11 +1,12 @@
 'use client'
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navItems =[
     {label:'Dashboard', href:'/dashboard', icon:'/dashboard_icon.svg'},
-    {label:'Analytics', href:'/analytics', icon:'/analytics_icon.svg'}
+    {label:'Analytics', href:'/dashboard/analytics', icon:'/analytics_icon.svg'}
 ]
 const Sidebar=()=>{
     const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +22,8 @@ const Sidebar=()=>{
                 {navItems.map((item)=>{
                     const isActive = pathName===item.href
                     return(
-                        <Link key={item.href} href={item.href}>
+                        <Link key={item.href} href={item.href} className={`flex items-center px-4 py-3 rounded-3xl transition-colors ${isActive?"active-link":""}`}>
+                            <Image src={item.icon} alt="" width={32} height={32} />
                             {item.label}
                         </Link>
                     )
