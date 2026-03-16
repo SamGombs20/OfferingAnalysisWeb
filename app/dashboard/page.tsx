@@ -5,8 +5,8 @@ const DashboardPage=()=>{
     const {user, logOut} = useAuthStore()
 
     return(
-        <div className="mt-6">
-            <div className="flex font-bold text-3xl">
+        <div className="border-l min-h-screen border-blue-200 px-3">
+            <div className="flex font-bold text-4xl pt-6">
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
             </div>
