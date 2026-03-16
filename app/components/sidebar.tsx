@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useAuthStore } from "../lib/store";
 
 const navItems =[
     {label:'Dashboard', href:'/dashboard', icon:'/dashboard_icon.svg'},
@@ -10,6 +11,7 @@ const navItems =[
 ]
 const Sidebar=()=>{
     const [isOpen, setIsOpen] = useState(false)
+    const {logOut} =useAuthStore()
     const pathName = usePathname()
     useEffect(()=>{
         setIsOpen(false)
@@ -30,7 +32,7 @@ const Sidebar=()=>{
                 })}
             </nav>
             <div className="absolute bottom-0 left-0 right-0 p-4">
-                <button className="custom-btn w-full">Log Out</button>
+                <button onClick={logOut} className="custom-btn w-full">Log Out</button>
             </div>
         </aside>
     );
