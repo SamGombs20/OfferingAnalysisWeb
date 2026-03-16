@@ -30,7 +30,7 @@ const Sidebar = () => {
         <div className="fixed inset-0 backdrop-blur-sm z-30 lg:hidden" />
       )}
       <aside
-        className={`fixed top-50 bg-white m-4 rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-60 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-70 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
       >
         <nav className="flex flex-col mt-6 px-3 space-y-1">
           {navItems.map((item) => {
