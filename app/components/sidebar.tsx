@@ -25,58 +25,75 @@ const Sidebar = () => {
     setIsOpen(false);
   }, [pathName]);
   return (
-    <aside
-      className={`custom-sidebar m-4 rounded-2xl shadow-2xl px-3 border-none w-60 transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-    >
-      <nav className="flex flex-col mt-6 px-3 space-y-1">
-        {navItems.map((item) => {
-          const isActive = pathName === item.href;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex items-center px-4 py-3 rounded-3xl transition-colors hover:text-red-600 ${isActive ? "active-link" : "inactive-link"}`}
-            >
-              <svg
-                className="w-5 h-5 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+    <>
+    {isOpen &&(
+        <div className="fixed top-50 inset-0 backdrop-blur-sm z-30 lg:hidden"/>
+    )}
+      <aside
+        className={`fixed bg-white m-4 rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-60 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      >
+        <nav className="flex flex-col mt-6 px-3 space-y-1">
+          {navItems.map((item) => {
+            const isActive = pathName === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex items-center px-4 py-3 rounded-3xl transition-colors hover:text-red-600 ${isActive ? "active-link" : "inactive-link"}`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={item.icon}
-                />
-              </svg>
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <button
-          onClick={logOut}
-          className="border text-white bg-red-700 rounded-3xl flex items-center px-4 py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full"
-        >
-          <svg
-            className="w-5 h-5 mr-3"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+                <svg
+                  className="w-5 h-5 mr-3"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={item.icon}
+                  />
+                </svg>
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <button
+            onClick={logOut}
+            className="border text-white bg-red-700 rounded-3xl flex items-center px-4 py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 16.5V19C15 20.1046 14.1046 21 13 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3H13C14.1046 3 15 3.89543 15 5V8.0625M11 12H21M21 12L18.5 9.5M21 12L18.5 14.5"
-            />
-          </svg>
-          Log Out
-        </button>
-      </div>
-    </aside>
+            <svg
+              className="w-5 h-5 mr-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 16.5V19C15 20.1046 14.1046 21 13 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3H13C14.1046 3 15 3.89543 15 5V8.0625M11 12H21M21 12L18.5 9.5M21 12L18.5 14.5"
+              />
+            </svg>
+            Log Out
+          </button>
+        </div>
+      </aside>
+      <button
+        className="fixed top-4 left-4 z-50 bg-blue-700 text-white shadow-md lg:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          {isOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+    </>
   );
 };
 export default Sidebar;
