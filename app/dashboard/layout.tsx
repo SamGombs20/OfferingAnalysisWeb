@@ -5,7 +5,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <main className={`lg:ml-20 transition-all duration-300 ease-in-out border-l border-blue-200 px-3 pt-15`}>
+      <main className={`lg:ml-10 transition-all duration-300 ease-in-out border-l border-blue-200 px-3 pt-15`}>
         {children}
       </main>
     </div>

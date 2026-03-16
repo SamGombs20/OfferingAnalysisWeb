@@ -31,7 +31,7 @@ const Sidebar = () => {
         <div className="fixed inset-0 backdrop-blur-sm z-30 lg:hidden" />
       )}
       <aside
-        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-65 ${isCollapsed?"lg:w-20":"lg:w-72"} lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
+        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-all duration-300 ease-in-out lg:translate-x-0 z-50 w-65 ${isCollapsed?"lg:w-20":"lg:w-72"} lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
       >
         <div>
             <button
