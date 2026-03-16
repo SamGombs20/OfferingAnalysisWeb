@@ -6,7 +6,7 @@ const DashboardPage=()=>{
 
     return(
         <div>
-            <div className="flex font-bold text-4xl pt-6">
+            <div className="flex font-bold text-4xl ">
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
             </div>

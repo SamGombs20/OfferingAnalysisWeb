@@ -26,11 +26,11 @@ const Sidebar = () => {
   }, [pathName]);
   return (
     <>
-    {isOpen &&(
-        <div className="fixed top-50 inset-0 backdrop-blur-sm z-30 lg:hidden"/>
-    )}
+      {isOpen && (
+        <div className="fixed inset-0 backdrop-blur-sm z-30 lg:hidden" />
+      )}
       <aside
-        className={`fixed bg-white m-4 rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-60 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-50 bg-white m-4 rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-60 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <nav className="flex flex-col mt-6 px-3 space-y-1">
           {navItems.map((item) => {
@@ -81,18 +81,32 @@ const Sidebar = () => {
           </button>
         </div>
       </aside>
-      <button
-        className="fixed top-4 left-4 z-50 bg-blue-700 text-white shadow-md lg:hidden"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          {isOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
+      <div className="fixed right-0 top-4 shadow-md bg-blue-700 text-white z-50 mr-3 flex rounded-3xl p-2 lg:hidden">
+        <button className="" onClick={() => setIsOpen(!isOpen)}>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+      </div>
     </>
   );
 };
