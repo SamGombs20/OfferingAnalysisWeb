@@ -1,5 +1,6 @@
 'use client'
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navItems =[
     {label:'Dashboard', href:'/dashboard', icon:'/dashboard_icon.svg'},
@@ -7,10 +8,14 @@ const navItems =[
 ]
 const Sidebar=()=>{
     const [isOpen, setIsOpen] = useState(false)
+    const pathName = usePathname()
+    useEffect(()=>{
+        setIsOpen(false)
+    },[pathName])
     return(
-        <div>
-            
-        </div>
+        <aside className={`custom-sidebar fixed inset-y-0 left-0 z-40 w-72 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-auto ${isOpen?"translate-x-0":"-translate-x-full"}`}>
+
+        </aside>
     );
 }
 export default Sidebar;
