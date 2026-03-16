@@ -19,6 +19,7 @@ const navItems = [
 ];
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] =useState(false);
   const { user, logOut } = useAuthStore();
   const pathName = usePathname();
   useEffect(() => {
@@ -30,9 +31,25 @@ const Sidebar = () => {
         <div className="fixed inset-0 backdrop-blur-sm z-30 lg:hidden" />
       )}
       <aside
-        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-65 lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
+        className={`fixed top-50 m-5 bg-white  rounded-2xl shadow-2xl px-3 border-none transform h-100 my-auto transition-transform duration-300 ease-in-out lg:translate-x-0 z-50 w-65 ${isCollapsed?"lg:w-20":"lg:w-72"} lg:static lg:inset-auto ${isOpen ? "translate-x-0" : "-translate-x-100"}`}
       >
-        <nav className="flex flex-col mt-6 px-3 space-y-1">
+        <div>
+            <button
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className="hidden lg:flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 hover:bg-gray-800 transition-all duration-300 ease-in-out"
+            title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            <svg 
+              className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? "rotate-180" : ""}`}
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+            </svg>
+          </button>
+        </div>
+        <nav className="flex flex-col mt-6  space-y-1">
           {navItems.map((item) => {
             const isActive = pathName === item.href;
             return (
@@ -42,7 +59,7 @@ const Sidebar = () => {
                 className={`flex items-center px-4 py-3 rounded-3xl transition-all duration-300 ease-in-out hover:text-red-600 hover:scale-105 ${isActive ? "active-link" : "inactive-link"}`}
               >
                 <svg
-                  className="w-5 h-5 mr-3"
+                  className="w-5 h-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -54,15 +71,17 @@ const Sidebar = () => {
                     d={item.icon}
                   />
                 </svg>
-                {item.label}
+                {!isCollapsed &&(
+                    <span className="ml-3">{item.label}</span>
+                )}
               </Link>
             );
           })}
         </nav>
-        <div className="absolute bottom-30 pointer px-7 text-blue-700">
-          <Link href="/dashboard/profile" className="flex transition-all duration-300 ease-in-out hover:scale-110 hover:text-red-700" >
+        <div className="absolute bottom-30 pointer text-blue-700">
+          <Link href="/dashboard/profile" className="flex items-center transition-all duration-300 ease-in-out hover:scale-108 hover:text-red-700 px-3" >
           <svg
-            className="w-5 h-5 mr-3"
+            className="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -73,16 +92,18 @@ const Sidebar = () => {
               fill="currentColor"
             ></path>
           </svg>
-          <p>{user?.firstName + " " + user?.lastName}</p>
+          {!isCollapsed && (
+            <p className="ml-3">{user?.firstName + " " + user?.lastName}</p>
+          )}
           </Link>
         </div>
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <button
             onClick={logOut}
-            className="border text-white bg-red-700 rounded-3xl flex items-center justify-center py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full"
+            className="border text-white bg-red-700 rounded-3xl flex items-center justify-center py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full hover:scale-105"
           >
             <svg
-              className="w-5 h-5 mr-3"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -94,11 +115,13 @@ const Sidebar = () => {
                 d="M15 16.5V19C15 20.1046 14.1046 21 13 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3H13C14.1046 3 15 3.89543 15 5V8.0625M11 12H21M21 12L18.5 9.5M21 12L18.5 14.5"
               />
             </svg>
-            Log Out
+           {!isCollapsed && (
+            <p className="ml-3"> Log Out</p>
+           )}
           </button>
         </div>
       </aside>
-      <div className="fixed right-0 top-4 shadow-md bg-blue-700 text-white z-50 mr-3 flex rounded-3xl p-2 lg:hidden">
+      <div className="fixed right-0 top-4 shadow-md bg-blue-700 text-white z-50 mr-3 flex rounded-full p-2 lg:hidden">
         <button className="" onClick={() => setIsOpen(!isOpen)}>
           <svg
             className="w-6 h-6"
