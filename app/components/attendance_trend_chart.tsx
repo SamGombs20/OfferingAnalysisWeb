@@ -15,7 +15,7 @@ const AttendanceChart = () => {
         style={{
           width: "100%",
           maxWidth: "800px",
-          maxHeight: "80vh",
+          height:'400px',
           aspectRatio: 1.618,
         }}
         responsive
@@ -31,7 +31,8 @@ const AttendanceChart = () => {
           dataKey="attendance"
           type="monotone"
           stroke="#0051ff"
-          strokeWidth={2}
+          strokeWidth={2.5}
+          dot={{stroke:'#0051ff', strokeWidth:2,r:4}}
           name="Church attendance"
         />
         <XAxis
