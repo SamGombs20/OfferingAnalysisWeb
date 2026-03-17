@@ -25,6 +25,10 @@ const Sidebar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [pathName]);
+  const mobileViewToggle =()=>{
+    setIsOpen(!isOpen)
+    setIsCollapsed(false)
+  }
   return (
     <>
       {isOpen && (
@@ -122,7 +126,7 @@ const Sidebar = () => {
         </div>
       </aside>
       <div className="fixed right-0 top-4 shadow-md bg-blue-700 text-white z-50 mr-3 flex rounded-full p-2 lg:hidden">
-        <button className="" onClick={() => setIsOpen(!isOpen)}>
+        <button className="" onClick={mobileViewToggle}>
           <svg
             className="w-6 h-6"
             fill="none"
