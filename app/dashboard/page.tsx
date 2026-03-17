@@ -70,7 +70,7 @@ const DashboardPage = () => {
   return (
     <div className="mt-5">
       <div>
-        <p className="text-xl font-bold blue-txt">Dashboard</p>
+        <p className="text-3xl font-bold blue-txt">Dashboard</p>
         <div className="flex gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8">
             {cardData.map((item, index) => (
           <div key={index} className="flex min-w-50 border border-blue-300 rounded-xl p-3 flex-col">
