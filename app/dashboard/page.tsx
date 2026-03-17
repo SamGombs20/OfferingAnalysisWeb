@@ -1,5 +1,7 @@
 "use client";
 
+import AttendanceChart from "../components/attendance_trend_chart";
+
 const cardData = [
   {
     title: "Attendance",
@@ -108,6 +110,9 @@ const DashboardPage = () => {
         </svg>
         <p className="pr-5">File record</p>
       </button>
+      <div>
+        <AttendanceChart/>
+      </div>
     </div>
   );
 };
