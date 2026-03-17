@@ -48,7 +48,7 @@ const cardData = [
         ></path>
       </>
     ),
-    details: "Ksh. 30,000",
+    details: "30,000",
   },
   {
     title: "Visitors",
@@ -71,7 +71,7 @@ const DashboardPage = () => {
     <div className="mt-5">
       <div>
         <p className="text-xl font-bold blue-txt">Dashboard</p>
-        <div className="flex w-md flex-wrap justify-between lg:w-2xl mt-8">
+        <div className="flex gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8">
             {cardData.map((item, index) => (
           <div key={index} className="flex min-w-50 border border-blue-300 rounded-xl p-3 flex-col">
             <div className="flex items-center">
@@ -85,7 +85,7 @@ const DashboardPage = () => {
               </svg>
               <p className="text-md">{item.title}</p>
             </div>
-            <p>{item.details}</p>
+            <p className="font-[600] text-3xl">{item.details}</p>
           </div>
         ))}
         </div>
