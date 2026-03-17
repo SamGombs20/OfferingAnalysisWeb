@@ -1,5 +1,6 @@
 
 import {
+    CartesianGrid,
   Legend,
   Line,
   LineChart,
@@ -27,17 +28,20 @@ const AttendanceChart = () => {
         }}
         data={weeklySummary}
       >
+        <CartesianGrid strokeDasharray="3 4" stroke="#f3f4f6" vertical={false} />
         <Line
           dataKey="attendance"
           type="monotone"
           stroke="#0051ff"
           strokeWidth={2.5}
-          dot={{stroke:'#0051ff', strokeWidth:2,r:4}}
+          dot={false}
+          activeDot={{r: 7, strokeWidth: 3, stroke: '#fff' }}
           name="Church attendance"
         />
         <XAxis
           stroke="#000000"
           dataKey="date"
+          tickFormatter={(v)=>v.slice(5)}
           label={{ value: "Date", position: "bottom" }}
         />
         <YAxis
