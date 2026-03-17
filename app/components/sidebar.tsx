@@ -104,7 +104,7 @@ const Sidebar = () => {
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <button
             onClick={logOut}
-            className="border text-white bg-red-700 rounded-3xl flex items-center justify-center py-3 hover:text-red-700 hover:bg-transparent transition-all duration-400 ease-in-out w-full hover:scale-105"
+            className="border text-white bg-red-700 rounded-3xl flex items-center justify-center py-3 hover:text-red-700 hover:cursor-pointer hover:bg-transparent transition-all duration-400 ease-in-out w-full hover:scale-105"
           >
             <svg
               className="w-5 h-5"
