@@ -13,3 +13,9 @@ type Token ={
     refreshToken:string,
     tokenType:string
 }
+type DailySummary={
+    week:number,
+    date:string,
+    attendance:number,
+    offerings:number
+}
