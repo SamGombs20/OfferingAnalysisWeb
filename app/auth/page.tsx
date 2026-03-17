@@ -10,12 +10,12 @@ const AuthPage =()=>{
         setIsLogin(!isLogin)
     }
     return (
-        <div className="container w-xl mx-auto min-h-screen items-center flex flex-col justify-center">
+        <div className="container lg:w-xl mx-auto min-h-screen items-center flex flex-col justify-center">
             <div className="text-4xl font-bold flex">
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
             </div>
-            <div className="flex flex-col mt-8 w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">
+            <div className="flex flex-col mt-8 lg:w-full min-h-96 p-4 rounded-xl shadow-xl border-t border-blue-700 pb-8">
                 {isLogin ? <LogInForm/>:<RegistrationForm/>}
             </div>
             <div className="mt-8">
