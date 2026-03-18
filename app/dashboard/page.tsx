@@ -108,7 +108,7 @@ const DashboardPage = () => {
             strokeWidth={2}
           ></path>{" "}
         </svg>
-        <p className="pr-5">File record</p>
+        <p className="pr-5">New record</p>
       </button>
       <div className="mt-10 border p-5 border-gray-300 rounded">
         <p className="font-semibold mb-5 ml-15 text-2xl">
