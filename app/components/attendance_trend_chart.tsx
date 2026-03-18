@@ -31,7 +31,7 @@ const AttendanceChart = () => {
         data={weeklySummary}
       >
         
-        <CartesianGrid strokeDasharray="3 4" stroke="#f3f4f6" vertical={false} />
+        <CartesianGrid strokeDasharray="3 4" stroke="#f3f4f6" />
         <Line
           dataKey="attendance"
           type="monotone"

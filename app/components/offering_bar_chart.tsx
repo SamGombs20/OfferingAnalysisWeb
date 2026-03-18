@@ -18,11 +18,29 @@ const OfferingsChart = () => {
         bottom: 5,
       }}
     >
-      <XAxis dataKey="date" tickFormatter={(v) => v.slice(5)} />
-      <YAxis width="auto" label={{value:"Total", position:"insideLeft", angle:-90}}/>
-      <Bar dataKey='offerings' name="Offerings Collection" fill="#0051ff" radius={[10,10,0,0]}/>
-      <Tooltip/>
-      <Legend/>
+      <XAxis
+        dataKey="date"
+        label={{ value: "Date", position: "bottom" }}
+        tickFormatter={(v) => v.slice(5)}
+      />
+      <YAxis
+        width="auto"
+        label={{ value: "Total", position: "insideLeft", angle: -90 }}
+      />
+      <Bar
+        dataKey="offerings"
+        name="Offerings Collection"
+        fill="#0051ff"
+        radius={[10, 10, 0, 0]}
+      />
+      <Tooltip />
+      <Legend
+       width={200}
+        wrapperStyle={{
+          top: -20,
+          right: -50,
+        }}
+      />
     </BarChart>
   );
 };
