@@ -72,8 +72,7 @@ const DashboardPage = () => {
     <div className="mt-5">
       <div>
         <p className="text-4xl font-bold blue-txt">Dashboard</p>
-
-        <div className="flex gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8 mb-8">
+        <div className="flex w-full gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8 mb-8">
           {cardData.map((item, index) => (
             <div
               key={index}
@@ -95,7 +94,7 @@ const DashboardPage = () => {
           ))}
         </div>
       </div>
-      <button className="flex  items-center border hover:bg-transparent hover:cursor-pointer hover:text-blue-700 transition-all duration-300 ease-in-out bg-blue-700 py-2 px-3 rounded-3xl text-white">
+      <button className="flex items-center border hover:bg-transparent hover:cursor-pointer hover:text-blue-700 transition-all duration-300 ease-in-out bg-blue-700 py-2 px-3 rounded-3xl text-white">
         <svg
           className="w-8 h-8"
           viewBox="0 0 24 24"
@@ -110,9 +109,10 @@ const DashboardPage = () => {
         </svg>
         <p className="pr-5">File record</p>
       </button>
-      <div>
-        <AttendanceChart/>
-      </div>
+      <div className="mt-10 border p-5 border-gray-300 rounded">
+              <p className="font-semibold mb-5 ml-15 text-2xl">Church Attendance Summary</p>
+            <AttendanceChart/>
+          </div>
     </div>
   );
 };

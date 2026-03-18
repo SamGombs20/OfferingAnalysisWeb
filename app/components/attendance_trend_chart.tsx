@@ -8,18 +8,20 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+
+
 import { weeklySummary } from "../data/data";
 const AttendanceChart = () => {
   return (
-    <div className="mt-10">
-      <LineChart
+    
+    <LineChart
         style={{
-          width: "100%",
-          maxWidth: "800px",
+        width:'600px',
+        //   maxWidth: "1000px",
           height:'400px',
           aspectRatio: 1.618,
         }}
-        responsive
+        responsive={true}
         margin={{
           top: 0,
           right: 10,
@@ -28,6 +30,7 @@ const AttendanceChart = () => {
         }}
         data={weeklySummary}
       >
+        
         <CartesianGrid strokeDasharray="3 4" stroke="#f3f4f6" vertical={false} />
         <Line
           dataKey="attendance"
@@ -58,7 +61,6 @@ const AttendanceChart = () => {
           }}
         />
       </LineChart>
-    </div>
   );
 };
 export default AttendanceChart;
