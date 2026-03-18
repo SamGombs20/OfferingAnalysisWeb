@@ -4,8 +4,10 @@ import Sidebar from "../components/sidebar";
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex min-h-screen">
-      <Sidebar />
-      <main className={`lg:ml-1 lg:pl-10 transition-all duration-300 ease-in-out border-l border-blue-200 px-3 pt-15`}>
+      <div className="lg:bg-gray-200 lg:flex">
+        <Sidebar/>
+      </div>
+      <main className={`lg:ml-1 lg:pl-10 transition-all duration-300 ease-in-out  px-3 pt-15`}>
         <div className="flex font-bold text-sm ">
                 <p className="blue-txt">Offering</p>
                 <p className="red-txt">Analysis</p>
