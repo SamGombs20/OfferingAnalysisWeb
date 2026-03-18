@@ -35,7 +35,7 @@ const AttendanceChart = () => {
         <Line
           dataKey="attendance"
           type="monotone"
-          stroke="#0051ff"
+          stroke="#ff8c00"
           strokeWidth={2.5}
           dot={false}
           activeDot={{r: 7, strokeWidth: 3, stroke: '#fff' }}

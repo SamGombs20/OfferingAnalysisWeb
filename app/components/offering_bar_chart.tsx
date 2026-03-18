@@ -20,7 +20,7 @@ const OfferingsChart = () => {
     >
       <XAxis dataKey="date" tickFormatter={(v) => v.slice(5)} />
       <YAxis width="auto" />
-      <Bar dataKey='offerings' fill="#c10007" radius={[10,10,0,0]}/>
+      <Bar dataKey='offerings' fill="#0051ff" radius={[10,10,0,0]}/>
     </BarChart>
   );
 };
