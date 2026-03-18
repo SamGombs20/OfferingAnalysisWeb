@@ -1,4 +1,4 @@
-import { Bar, BarChart, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
 import { weeklySummary } from "../data/data";
 
 const OfferingsChart = () => {
@@ -18,13 +18,16 @@ const OfferingsChart = () => {
         bottom: 5,
       }}
     >
+      <CartesianGrid strokeDasharray="3 4" stroke="#f3f4f6" />
       <XAxis
         dataKey="date"
+        stroke="black"
         label={{ value: "Date", position: "bottom" }}
         tickFormatter={(v) => v.slice(5)}
       />
       <YAxis
         width="auto"
+        stroke="black"
         label={{ value: "Total", position: "insideLeft", angle: -90 }}
       />
       <Bar
@@ -35,7 +38,7 @@ const OfferingsChart = () => {
       />
       <Tooltip />
       <Legend
-       width={200}
+        width={200}
         wrapperStyle={{
           top: -20,
           right: -50,

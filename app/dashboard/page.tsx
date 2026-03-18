@@ -116,7 +116,10 @@ const DashboardPage = () => {
         </p>
         <AttendanceChart />
       </div>
-      <div>
+      <div className="mt-10 border p-5 border-gray-300 rounded">
+        <p className="font-semibold mb-5 ml-15 text-2xl">
+          Sunday Giving Summary
+        </p>
         <OfferingsChart/>
       </div>
     </div>
