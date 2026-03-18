@@ -70,7 +70,7 @@ const cardData = [
 
 const DashboardPage = () => {
   return (
-    <div className="mt-5">
+    <div className="my-5">
       <div>
         <p className="text-4xl font-bold blue-txt">Dashboard</p>
         <div className="flex w-full gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8 mb-8">
