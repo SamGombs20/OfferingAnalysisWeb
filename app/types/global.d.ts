@@ -19,3 +19,11 @@ type DailySummary={
     attendance:number,
     offerings:number
 }
+type weeklySummary ={
+    date:string,
+    cash:number,
+    bank:number,
+    adults:number,
+    children:number,
+    visitors:number
+}
