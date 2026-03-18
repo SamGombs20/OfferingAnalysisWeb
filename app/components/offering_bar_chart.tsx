@@ -5,8 +5,8 @@ const OfferingsChart = () => {
   return (
     <BarChart
       style={{
-        width: "1000px",
-        height: "60vh",
+        width: "600px",
+        height: "400px",
         aspectRatio: 1.618,
       }}
       responsive
