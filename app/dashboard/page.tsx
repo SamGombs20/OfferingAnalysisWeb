@@ -1,6 +1,7 @@
 "use client";
 
 import AttendanceChart from "../components/attendance_trend_chart";
+import OfferingsChart from "../components/offering_bar_chart";
 
 const cardData = [
   {
@@ -110,9 +111,14 @@ const DashboardPage = () => {
         <p className="pr-5">File record</p>
       </button>
       <div className="mt-10 border p-5 border-gray-300 rounded">
-              <p className="font-semibold mb-5 ml-15 text-2xl">Church Attendance Summary</p>
-            <AttendanceChart/>
-          </div>
+        <p className="font-semibold mb-5 ml-15 text-2xl">
+          Church Attendance Summary
+        </p>
+        <AttendanceChart />
+      </div>
+      <div>
+        <OfferingsChart/>
+      </div>
     </div>
   );
 };

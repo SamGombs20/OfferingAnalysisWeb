@@ -10,7 +10,7 @@ export const weeklySummary: DailySummary[] = [
   { week: 7, date: "2026-Feb-16", attendance: 215, offerings: 110500 },
   { week: 8, date: "2026-Feb-23", attendance: 230, offerings: 135000 },
   { week: 9, date: "2026-Feb-02", attendance: 212, offerings: 102000 },
-  { week: 10, date: "2026-03-09", attendance: 190, offerings: 95000 },
-  { week: 11, date: "2026-03-16", attendance: 225, offerings: 125000 },
-  { week: 12, date: "2026-03-23", attendance: 208, offerings: 108000 },
+  { week: 10, date: "2026-Feb-09", attendance: 190, offerings: 95000 },
+  { week: 11, date: "2026-Feb-16", attendance: 225, offerings: 125000 },
+  { week: 12, date: "2026-Feb-23", attendance: 208, offerings: 108000 },
 ];
