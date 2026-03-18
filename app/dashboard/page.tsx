@@ -108,7 +108,7 @@ const DashboardPage = () => {
             strokeWidth={2}
           ></path>{" "}
         </svg>
-        <p className="pr-5">New record</p>
+        <p className="pr-5">Add data</p>
       </button>
       <div className="flex gap-3 items-start justify-between flex-wrap">
         <div className="mt-10 border p-5 border-gray-300 rounded">
