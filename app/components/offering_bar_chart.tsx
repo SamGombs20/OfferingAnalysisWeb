@@ -5,7 +5,7 @@ const OfferingsChart = () => {
   return (
     <BarChart
       style={{
-        width: "600px",
+        width: "1000px",
         height: "60vh",
         aspectRatio: 1.618,
       }}
@@ -22,8 +22,9 @@ const OfferingsChart = () => {
       />
       <YAxis
         width="auto"
+        tickFormatter={(v)=>v.toLocaleString()}
         stroke="black"
-        label={{ value: "Total", position: "insideLeft", angle: -90 }}
+        label={{ value: "Total (Ksh.)", position: "insideLeft", angle: -90 }}
       />
       <Bar
         dataKey="offerings"
@@ -32,15 +33,23 @@ const OfferingsChart = () => {
         activeBar={{fill:'#ff8c00'}}
         radius={[10, 10, 0, 0]}
       />
-      <Tooltip
-      
-       />
-      <Legend
-        width={200}
-        wrapperStyle={{
-          top: -20,
-          right: -50,
+     <Tooltip
+        formatter={(value) => [`KSh ${value?.toLocaleString()}`, 'Offerings']}
+        labelFormatter={(label) => `Week of ${label}`}
+        contentStyle={{
+          backgroundColor: 'white',
+          border: '1px solid #e5e7eb',
+          borderRadius: '10px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+          padding: '10px 14px',
         }}
+        cursor={{ fill: 'rgba(0, 81, 255, 0.08)' }} // subtle highlight
+      />
+      <Legend
+        verticalAlign="top"
+        align="right"
+        wrapperStyle={{ fontSize: 14, paddingBottom: 8 }}
+        iconType="circle"
       />
     </BarChart>
   );
