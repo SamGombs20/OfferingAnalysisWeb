@@ -1,4 +1,4 @@
-import { Bar, BarChart, Legend, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, Legend, Tooltip, XAxis, YAxis } from "recharts";
 import { weeklySummary } from "../data/data";
 
 const OfferingsChart = () => {
@@ -19,8 +19,9 @@ const OfferingsChart = () => {
       }}
     >
       <XAxis dataKey="date" tickFormatter={(v) => v.slice(5)} />
-      <YAxis width="auto" label={{position:'insideLeft', angle:-90, value:'Total'}}/>
+      <YAxis width="auto" label={{value:"Total", position:"insideLeft", angle:-90}}/>
       <Bar dataKey='offerings' name="Offerings Collection" fill="#0051ff" radius={[10,10,0,0]}/>
+      <Tooltip/>
       <Legend/>
     </BarChart>
   );
