@@ -1,5 +1,6 @@
 "use client";
 
+import AttendancePieChart from "../components/attendance_pie_chart";
 import AttendanceChart from "../components/attendance_trend_chart";
 import OfferingsChart from "../components/offering_bar_chart";
 
@@ -112,17 +113,20 @@ const DashboardPage = () => {
       </button>
       <div className="flex gap-3 items-start justify-between flex-wrap">
         <div className="mt-10 border p-5 border-gray-300 rounded">
-        <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
-          Church Attendance Summary
-        </p>
-        <AttendanceChart />
+          <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
+            Church Attendance Summary
+          </p>
+          <AttendanceChart />
+        </div>
+        <div className="mt-10 border p-5 border-gray-300 rounded">
+          <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
+            Sunday Giving Summary
+          </p>
+          <OfferingsChart />
+        </div>
       </div>
-      <div className="mt-10 border p-5 border-gray-300 rounded">
-        <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
-          Sunday Giving Summary
-        </p>
-        <OfferingsChart/>
-      </div>
+      <div>
+        <AttendancePieChart />
       </div>
     </div>
   );

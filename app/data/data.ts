@@ -1,3 +1,4 @@
+import { number } from "zod";
 import { DailySummary } from "../types/global";
 
 export const weeklySummary: DailySummary[] = [
@@ -13,4 +14,14 @@ export const weeklySummary: DailySummary[] = [
   { week: 10, date: "2026-Mar-09", attendance: 190, offerings: 95000 },
   { week: 11, date: "2026-Mar-16", attendance: 225, offerings: 125000 },
   { week: 12, date: "2026-Mar-23", attendance: 208, offerings: 108000 },
+];
+export const attendanceRatio = [
+  {
+    name: "Adults",
+    number: 150,
+  },
+  {
+    name: "Children",
+    number: 30,
+  },
 ];
