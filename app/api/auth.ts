@@ -2,8 +2,8 @@ import { cookies } from "next/headers";
 import { User, UserLogIn, UserRegisterAPI } from "../types/global";
 import { loginUser } from "../actions/auth";
 import { accessOptions, refreshOptions } from "@/utils/utils";
-const authAPI = "http://localhost:8000/auth";
-const userAPI = "http://localhost:8000/users";
+const authAPI = "https://offering-user-service.vercel.app/auth";
+const userAPI = "https://offering-user-service.vercel.app/users";
 
 export const registerUserApi = async (user: UserRegisterAPI): Promise<User> => {
   const res = await fetch(`${authAPI}/register`, {
