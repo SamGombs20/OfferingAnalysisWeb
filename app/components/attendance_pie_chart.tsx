@@ -1,4 +1,4 @@
-import { Pie, PieChart } from "recharts";
+import { Pie, PieChart, Tooltip } from "recharts";
 import { attendanceRatio } from "../data/data";
 
 const AttendancePieChart = () => {
@@ -21,6 +21,16 @@ const AttendancePieChart = () => {
         cy="50%"
         fill="#0051ff"
         isAnimationActive={true}
+      />
+      <Tooltip
+        contentStyle={{
+          backgroundColor: "white",
+          border: "1px solid #e5e7eb",
+          borderRadius: "10px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+          padding: "10px 14px",
+        }}
+        cursor={{ fill: "rgba(0, 81, 255, 0.08)" }}
       />
     </PieChart>
   );
