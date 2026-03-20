@@ -126,6 +126,9 @@ const DashboardPage = () => {
         </div>
       </div>
       <div>
+        <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
+          Sunday Giving Summary
+        </p>
         <AttendancePieChart />
       </div>
     </div>

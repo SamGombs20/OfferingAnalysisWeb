@@ -16,7 +16,7 @@ const AttendancePieChart = () => {
       <Pie
         data={attendanceRatio}
         dataKey="number"
-        outerRadius="50%"
+        outerRadius="70%"
         cx="50%"
         cy="50%"
         fill="#0051ff"
