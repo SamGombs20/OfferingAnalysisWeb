@@ -11,8 +11,17 @@ const AttendancePieChart = () => {
         maxWidth: "600px",
         maxHeight: "400px",
       }}
+      responsive
     >
-      <Pie data={attendanceRatio} dataKey='value' />
+      <Pie
+        data={attendanceRatio}
+        dataKey="number"
+        outerRadius="50%"
+        cx="50%"
+        cy="50%"
+        fill="#0051ff"
+        isAnimationActive={true}
+      />
     </PieChart>
   );
 };
