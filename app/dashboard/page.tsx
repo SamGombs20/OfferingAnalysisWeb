@@ -127,7 +127,7 @@ const DashboardPage = () => {
       </div>
       <div className="mt-10 border p-5 border-gray-300">
         <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
-          Attendance Proportion
+          Attendance by age
         </p>
         <AttendancePieChart />
       </div>
