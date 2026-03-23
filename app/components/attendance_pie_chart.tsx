@@ -1,4 +1,4 @@
-import { Pie, PieChart, PieLabelRenderProps, Tooltip } from "recharts";
+import { Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
 import { attendanceRatio } from "../data/data";
 import { FC } from "react";
 
@@ -23,6 +23,10 @@ const renderCustomizedLabel:FC<PieLabelRenderProps> =({cx,cy,midAngle, innerRadi
   )
 }
 
+const MyCustomPie =(props:PieSectorShapeProps)=>{
+  return <Sector {...props} fill={COLORS[props.index %COLORS.length]}/>
+}
+
 const AttendancePieChart = () => {
   return (
     <PieChart
@@ -41,7 +45,7 @@ const AttendancePieChart = () => {
         outerRadius="80%"
         cx="50%"
         cy="50%"
-        fill="#0051ff"
+        
         isAnimationActive={true}
       />
       <Tooltip
