@@ -1,12 +1,11 @@
 import { Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
 import { attendanceRatio } from "../data/data";
-import { FC } from "react";
 
 const RADIAN = Math.PI/180;
 
 const COLORS = ['#0051ff', '#ff8c00']
 
-const renderCustomizedLabel:FC<PieLabelRenderProps> =({cx,cy,midAngle, innerRadius, outerRadius, percent}:PieLabelRenderProps)=>{
+const renderCustomizedLabel =({cx,cy,midAngle, innerRadius, outerRadius, percent}:PieLabelRenderProps)=>{
   if(cx==null||cy==null||midAngle==null||innerRadius==null||outerRadius==null){
     return null;
   }
@@ -18,7 +17,7 @@ const renderCustomizedLabel:FC<PieLabelRenderProps> =({cx,cy,midAngle, innerRadi
   const y = ncy +radius * Math.sin(-(midAngle?? 0)* RADIAN)
   return (
     <text x={x} y ={y} fill="white" textAnchor={x>ncx?'start':'end'} dominantBaseline="central">
-      {`${((percent??1)*100).toFixed(0)}`}
+      {`${((percent??1)*100).toFixed(0)}%`}
     </text>
   )
 }
@@ -42,10 +41,9 @@ const AttendancePieChart = () => {
       <Pie
         data={attendanceRatio}
         dataKey="number"
-        outerRadius="80%"
-        cx="50%"
-        cy="50%"
-        
+        fill="#0051ff"
+        labelLine={false}
+        label={renderCustomizedLabel}
         isAnimationActive={true}
       />
       <Tooltip
