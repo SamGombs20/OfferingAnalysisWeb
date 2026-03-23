@@ -13,7 +13,7 @@ const AttendanceChart = () => {
   return (
     <LineChart
       style={{
-        width: "600px",
+        width: "500px",
         //   maxWidth: "1000px",
         height: "400px",
         aspectRatio: 1.618,
