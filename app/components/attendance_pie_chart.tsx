@@ -1,4 +1,4 @@
-import { Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
+import { Legend, Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
 import { attendanceRatio } from "../data/data";
 
 const RADIAN = Math.PI/180;
@@ -40,8 +40,10 @@ const AttendancePieChart = () => {
     >
       <Pie
         data={attendanceRatio}
+        cx='50%'
+        cy='50%'
         dataKey="number"
-        fill="#0051ff"
+        nameKey='name'
         labelLine={false}
         label={renderCustomizedLabel}
         isAnimationActive={true}
@@ -57,6 +59,7 @@ const AttendancePieChart = () => {
         }}
         cursor={{ fill: "rgba(0, 81, 255, 0.08)" }}
       />
+      <Legend/>
     </PieChart>
   );
 };
