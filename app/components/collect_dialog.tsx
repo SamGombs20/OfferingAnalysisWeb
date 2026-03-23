@@ -3,6 +3,24 @@ const CollectDataForm =()=>{
         <div className="lg:w-xl">
             <form>
                 <div className="input-div">
+                    <input type="number" placeholder="Tithes" className="user-input"/>
+                </div>
+                <div className="input-div">
+                    <input type="number" placeholder="Offerings" className="user-input"/>
+                </div>
+                <div className="input-div">
+                    <input type="number" placeholder="Sunday School" className="user-input"/>
+                </div>
+                <div className="input-div">
+                    <input type="number" placeholder="Building" className="user-input"/>
+                </div>
+                <div className="input-div">
+                    <input type="number" placeholder="Evangelism" className="user-input"/>
+                </div>
+                <div className="input-div">
+                    <input type="number" placeholder="Others" className="user-input"/>
+                </div>
+                <div className="input-div">
                     <input type="number" className="user-input" placeholder="No. of adults"/>
                 </div>
                 <div className="input-div">
