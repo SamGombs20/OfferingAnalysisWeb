@@ -45,6 +45,7 @@ const AttendancePieChart = () => {
         labelLine={false}
         label={renderCustomizedLabel}
         isAnimationActive={true}
+        shape={MyCustomPie}
       />
       <Tooltip
         contentStyle={{
