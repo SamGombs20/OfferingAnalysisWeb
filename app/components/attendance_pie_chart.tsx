@@ -1,4 +1,4 @@
-import { Legend, Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
+import { Cell, Legend, Pie, PieChart, PieLabelRenderProps, PieSectorShapeProps, Sector, Tooltip } from "recharts";
 import { attendanceRatio } from "../data/data";
 
 const RADIAN = Math.PI/180;
@@ -46,9 +46,11 @@ const AttendancePieChart = () => {
         nameKey='name'
         labelLine={false}
         label={renderCustomizedLabel}
-        isAnimationActive={true}
-        shape={MyCustomPie}
-      />
+        isAnimationActive={true}>
+          {attendanceRatio.map((entry, index)=>(
+            <Cell key={index} fill={COLORS[index%COLORS.length]}/>
+          ))}
+        </Pie>
       <Legend/>
     </PieChart>
   );
