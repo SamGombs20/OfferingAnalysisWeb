@@ -49,16 +49,6 @@ const AttendancePieChart = () => {
         isAnimationActive={true}
         shape={MyCustomPie}
       />
-      <Tooltip
-        contentStyle={{
-          backgroundColor: "white",
-          border: "1px solid #e5e7eb",
-          borderRadius: "10px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-          padding: "10px 14px",
-        }}
-        cursor={{ fill: "rgba(0, 81, 255, 0.08)" }}
-      />
       <Legend/>
     </PieChart>
   );
