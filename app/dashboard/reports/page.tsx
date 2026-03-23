@@ -1,7 +1,9 @@
+import CollectDataForm from "@/app/components/collect_dialog";
+
 const Reports =()=>{
     return(
         <div>
-            Reports page
+            <CollectDataForm/>
         </div>
     )
 }

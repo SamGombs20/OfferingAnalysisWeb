@@ -1,6 +1,6 @@
 const CollectDataForm =()=>{
     return (
-        <div>
+        <div className="lg:w-xl">
             <form>
                 <div className="input-div">
                     <input className="user-input" placeholder="No. of adults"/>
@@ -15,9 +15,10 @@ const CollectDataForm =()=>{
                     <input className="user-input" placeholder="Bank Collections"/>
                 </div>
                 <div className="input-div">
-                    <input className="user-input" placeholder=""/>
+                    <input className="user-input" placeholder="Date"/>
                 </div>
             </form>
         </div>
     )
 }
+export default CollectDataForm;
