@@ -58,7 +58,7 @@ const CollectDataForm = () => {
                 )}
             <div className="flex">
              <button className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide==0?"Close":"Back"}</button>
-             <button></button>
+             <button>{slide==1?'Submit':'Next'}</button>
             </div>
             </form>
         </div>
