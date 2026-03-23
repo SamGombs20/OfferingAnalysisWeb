@@ -56,9 +56,9 @@ const CollectDataForm = () => {
                     </div>
                 </div>
                 )}
-            <div className="flex">
+            <div className="flex justify-end gap-10">
              <button className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide==0?"Close":"Back"}</button>
-             <button>{slide==1?'Submit':'Next'}</button>
+             <button className="transition-all ease-in-out duration-400 text-white border rounded-xl py-1 px-4  bg-blue-700 hover:bg-transparent">{slide==1?'Submit':'Next'}</button>
             </div>
             </form>
         </div>
