@@ -3,7 +3,7 @@ const CollectDataForm = () => {
         <div className="lg:w-xl">
             <form>
                 <div>
-                    <p className="text-2xl">Givings</p>
+                    <p className="text-2xl text-center">Givings</p>
                     <div className="input-div">
                         <input type="number" placeholder="Tithes" className="user-input" />
                     </div>
@@ -30,22 +30,25 @@ const CollectDataForm = () => {
                     </div>
                 </div>
 
-                <div className="input-div">
-                    <input type="number" className="user-input" placeholder="Adults" />
-                </div>
-                <div className="input-div">
-                    <input type="number" className="user-input" placeholder="Children" />
-                </div>
+                <div>
+                    <p className="text-2xl text-center font-[500]">Attendance</p>
+                    <div className="input-div">
+                        <input type="number" className="user-input" placeholder="Adults" />
+                    </div>
+                    <div className="input-div">
+                        <input type="number" className="user-input" placeholder="Children" />
+                    </div>
 
 
-                <div className="input-div">
-                    <input type="number" className="user-input" placeholder="Visitors" />
-                </div>
-                <div className="input-div">
-                    <input type="number" className="user-input" placeholder="New Converts" />
-                </div>
-                <div className="input-div">
-                    <input type="date" className="user-input" placeholder="Date" />
+                    <div className="input-div">
+                        <input type="number" className="user-input" placeholder="Visitors" />
+                    </div>
+                    <div className="input-div">
+                        <input type="number" className="user-input" placeholder="New Converts" />
+                    </div>
+                    <div className="input-div">
+                        <input type="date" className="user-input" placeholder="Date" />
+                    </div>
                 </div>
             </form>
         </div>
