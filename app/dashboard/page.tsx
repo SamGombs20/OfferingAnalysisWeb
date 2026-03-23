@@ -112,20 +112,20 @@ const DashboardPage = () => {
         <p className="pr-5">Add data</p>
       </button>
       <div className="flex gap-3 items-start justify-between flex-wrap">
-        <div className="mt-10 border p-5 border-gray-300 rounded">
+        <div className="mt-10 border p-5 border-blue-200 rounded">
           <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
             Church Attendance Summary
           </p>
           <AttendanceChart />
         </div>
-        <div className="mt-10 border p-5 border-gray-300 rounded">
+        <div className="mt-10 border p-5 border-blue-200 rounded">
           <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
             Sunday Giving Summary
           </p>
           <OfferingsChart />
         </div>
       </div>
-      <div className="mt-10 border p-5 border-gray-300 max-w-2xl">
+      <div className="mt-10 border p-5 border-blue-200 max-w-2xl">
         <p className="font-semibold mb-5 text-blue-900 ml-15 text-2xl">
           Attendance by age
         </p>
