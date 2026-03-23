@@ -5,7 +5,7 @@ const RADIAN = Math.PI/180;
 
 const COLORS = ['#0051ff', '#ff8c00']
 
-const renderCustomizedLabel =({cx,cy,midAngle, innerRadius, outerRadius, percent}:PieLabelRenderProps)=>{
+const renderCustomizedLabel =({cx=0.5,cy=0.5,midAngle, innerRadius, outerRadius, percent}:PieLabelRenderProps)=>{
   if(cx==null||cy==null||midAngle==null||innerRadius==null||outerRadius==null){
     return null;
   }
