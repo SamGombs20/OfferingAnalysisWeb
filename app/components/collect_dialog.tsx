@@ -5,18 +5,18 @@ import { collectionInput } from "../types/global";
 const CollectDataForm = () => {
     const[slide, setSlide] = useState(0);
     const [collections, setCollections] = useState<collectionInput>({
-        tithes:'0',
-        offerings:'0',
-        sundaySchool:'0',
-        building:'0',
+        tithes:'',
+        offerings:'',
+        sundaySchool:'',
+        building:'',
         evangelism:'',
-        others:'0',
-        cashCollections:'0',
-        bankCollections:'0',
-        adults:'0',
-        children:'0',
-        visitors:'0',
-        newConverts:'0',
+        others:'',
+        cashCollections:'',
+        bankCollections:'',
+        adults:'',
+        children:'',
+        visitors:'',
+        newConverts:'',
         date:''
     })
 
@@ -61,28 +61,28 @@ const CollectDataForm = () => {
                 {slide==0 &&(<div>
                     <p className="text-2xl text-center">Givings</p>
                     <div className="input-div">
-                        <input onChange={onChange} value={collections.tithes} name="tithes" type="number" placeholder="Tithes" className="user-input" />
+                        <input onChange={onChange} value={collections.tithes} name="tithes" type="text" placeholder="Tithes" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.offerings} name="offerings" placeholder="Offerings" className="user-input" />
+                        <input onChange={onChange} type="text" value={collections.offerings} name="offerings" placeholder="Offerings" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.sundaySchool} name="sundaySchool" placeholder="Sunday School" className="user-input" />
+                        <input onChange={onChange} type="text" value={collections.sundaySchool} name="sundaySchool" placeholder="Sunday School" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.building} name="building" placeholder="Building" className="user-input" />
+                        <input onChange={onChange} type="text" value={collections.building} name="building" placeholder="Building" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.evangelism} name="evangelism" placeholder="Evangelism" className="user-input" />
+                        <input onChange={onChange} type="text" value={collections.evangelism} name="evangelism" placeholder="Evangelism" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.others} name="others" placeholder="Others" className="user-input" />
+                        <input onChange={onChange} type="text" value={collections.others} name="others" placeholder="Others" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.cashCollections} name="cashCollections" className="user-input" placeholder="Cash Collections" />
+                        <input onChange={onChange} type="text" value={collections.cashCollections} name="cashCollections" className="user-input" placeholder="Cash Collections" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.bankCollections} name="bankCollections" className="user-input" placeholder="Bank Collections" />
+                        <input onChange={onChange} type="text" value={collections.bankCollections} name="bankCollections" className="user-input" placeholder="Bank Collections" />
                     </div>
                 </div>)}
 
@@ -90,21 +90,21 @@ const CollectDataForm = () => {
                     <div>
                     <p className="text-2xl text-center font-[500]">Attendance</p>
                     <div className="input-div">
-                        <input type="number" value={collections.adults} name="adults" className="user-input" placeholder="Adults" />
+                        <input onChange={onChange} type="text" value={collections.adults} name="adults" className="user-input" placeholder="Adults" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.children} name="children" className="user-input" placeholder="Children" />
+                        <input onChange={onChange} type="text" value={collections.children} name="children" className="user-input" placeholder="Children" />
                     </div>
 
 
                     <div className="input-div">
-                        <input type="number" value={collections.visitors} name="visitors" className="user-input" placeholder="Visitors" />
+                        <input onChange={onChange} type="text" value={collections.visitors} name="visitors" className="user-input" placeholder="Visitors" />
                     </div>
                     <div className="input-div">
-                        <input type="number" value={collections.newConverts} name="newConverts" className="user-input" placeholder="New Converts" />
+                        <input onChange={onChange} type="text" value={collections.newConverts} name="newConverts" className="user-input" placeholder="New Converts" />
                     </div>
                     <div className="input-div">
-                        <input type="date" value={collections.date} name="date" className="user-input" placeholder="Date" />
+                        <input onChange={onChange} type="date" value={collections.date} name="date" className="user-input" placeholder="Date" />
                     </div>
                 </div>
                 )}
