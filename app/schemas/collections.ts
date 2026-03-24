@@ -13,5 +13,5 @@ export const WeeklyCollectionSchema = z.object({
     children:z.string().min(1, "Certainly there were more children!"),
     visitors:z.string(),
     newConverts:z.string(),
-    date:z.string()
+    date:z.string().min(1, "This is definately a wrong date!")
 })

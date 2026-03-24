@@ -1,5 +1,6 @@
 import * as z from 'zod';
 import { UserLoginSchema, UserRegisterApiSchema, UserRegisterSchema, UserSchema } from '../schemas/user';
+import { WeeklyCollectionSchema } from '../schemas/collections';
 
 
 type User = z.infer<typeof UserSchema>
@@ -7,6 +8,8 @@ type UserLogIn = z.infer<typeof UserLoginSchema>
 type UserRegister = z.infer<typeof UserRegisterSchema>
 
 type UserRegisterAPI = z.infer<typeof UserRegisterApiSchema>
+
+type WeeklyCollection = z.infer<typeof WeeklyCollectionSchema>
 
 type Token ={
     accessToken:string,
@@ -26,19 +29,4 @@ type weeklySummary ={
     adults:number,
     children:number,
     visitors:number
-}
-type collectionInput ={
-    tithes:string,
-    offerings:string,
-    sundaySchool:string,
-    building:string,
-    evangelism:string,
-    others:string,
-    cashCollections:string,
-    bankCollections:string,
-    adults:string,
-    children:string,
-    visitors:string,
-    newConverts:string,
-    date:string
 }
