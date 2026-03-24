@@ -24,12 +24,14 @@ const CollectDataForm = () => {
         setSlide(slide+1)
     }
     const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        const {name, value} = e.target
+        if(e.target.value.replace(/\D/g, "").length>0){
+            const {name, value} = e.target
 
         setCollections((prevCollections)=>({
             ...prevCollections,
             [name]:value
         }))
+        }
     }
     const moveToPrev =()=>{
         setSlide(slide-1)
@@ -59,28 +61,28 @@ const CollectDataForm = () => {
                 {slide==0 &&(<div>
                     <p className="text-2xl text-center">Givings</p>
                     <div className="input-div">
-                        <input onChange={onChange} name="tithes" type="number" placeholder="Tithes" className="user-input" />
+                        <input onChange={onChange} value={collections.tithes} name="tithes" type="number" placeholder="Tithes" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="offerings" placeholder="Offerings" className="user-input" />
+                        <input type="number" value={collections.offerings} name="offerings" placeholder="Offerings" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="sundaySchool" placeholder="Sunday School" className="user-input" />
+                        <input type="number" value={collections.sundaySchool} name="sundaySchool" placeholder="Sunday School" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="building" placeholder="Building" className="user-input" />
+                        <input type="number" value={collections.building} name="building" placeholder="Building" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="evangelism" placeholder="Evangelism" className="user-input" />
+                        <input type="number" value={collections.evangelism} name="evangelism" placeholder="Evangelism" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="others" placeholder="Others" className="user-input" />
+                        <input type="number" value={collections.others} name="others" placeholder="Others" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="cashCollections" className="user-input" placeholder="Cash Collections" />
+                        <input type="number" value={collections.cashCollections} name="cashCollections" className="user-input" placeholder="Cash Collections" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="bankCollections" className="user-input" placeholder="Bank Collections" />
+                        <input type="number" value={collections.bankCollections} name="bankCollections" className="user-input" placeholder="Bank Collections" />
                     </div>
                 </div>)}
 
@@ -88,21 +90,21 @@ const CollectDataForm = () => {
                     <div>
                     <p className="text-2xl text-center font-[500]">Attendance</p>
                     <div className="input-div">
-                        <input type="number" name="adults" className="user-input" placeholder="Adults" />
+                        <input type="number" value={collections.adults} name="adults" className="user-input" placeholder="Adults" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="children" className="user-input" placeholder="Children" />
+                        <input type="number" value={collections.children} name="children" className="user-input" placeholder="Children" />
                     </div>
 
 
                     <div className="input-div">
-                        <input type="number" name="visitors" className="user-input" placeholder="Visitors" />
+                        <input type="number" value={collections.visitors} name="visitors" className="user-input" placeholder="Visitors" />
                     </div>
                     <div className="input-div">
-                        <input type="number" name="newConverts" className="user-input" placeholder="New Converts" />
+                        <input type="number" value={collections.newConverts} name="newConverts" className="user-input" placeholder="New Converts" />
                     </div>
                     <div className="input-div">
-                        <input type="date" name="date" className="user-input" placeholder="Date" />
+                        <input type="date" value={collections.date} name="date" className="user-input" placeholder="Date" />
                     </div>
                 </div>
                 )}
