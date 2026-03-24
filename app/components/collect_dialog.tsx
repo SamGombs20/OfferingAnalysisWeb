@@ -1,8 +1,16 @@
 'use client'
 import { ChangeEvent, useState } from "react";
 import { WeeklyCollection } from "../types/global";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { WeeklyCollectionSchema } from "../schemas/collections";
 
 const CollectDataForm = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm<WeeklyCollection>({
+        resolver: zodResolver(WeeklyCollectionSchema),
+        mode: 'onChange'
+    }
+    )
     const [slide, setSlide] = useState(0);
     const [collections, setCollections] = useState<WeeklyCollection>({
         tithes: '',
@@ -26,17 +34,17 @@ const CollectDataForm = () => {
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         if (/^\d*$/.test(value)) {
-            
+
 
             setCollections((prevCollections) => ({
                 ...prevCollections,
                 [name]: value
             }))
         }
-        if(name =='date'){
-            setCollections((prevCollections)=>({
+        if (name == 'date') {
+            setCollections((prevCollections) => ({
                 ...prevCollections,
-                [name]:value
+                [name]: value
             }))
         }
     }
@@ -68,7 +76,8 @@ const CollectDataForm = () => {
             {slide == 0 && (<div>
                 <p className="text-2xl text-center">Givings</p>
                 <div className="input-div">
-                    <input onChange={onChange} value={collections.tithes} name="tithes" type="text" placeholder="Tithes" className="user-input" />
+                    <input {...register('tithes')} onChange={(e)=>onChange(e)} value={collections.tithes} name="tithes" type="text" placeholder="Tithes" className={`user-input ${errors.tithes?.message ? 'error-inp' : ''}`} />
+                    {errors.tithes && (<p className="error-txt">{errors.tithes.message}</p>)}
                 </div>
                 <div className="input-div">
                     <input onChange={onChange} type="text" value={collections.offerings} name="offerings" placeholder="Offerings" className="user-input" />
