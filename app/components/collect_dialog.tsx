@@ -24,7 +24,7 @@ const CollectDataForm = () => {
         setSlide(slide+1)
     }
     const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        if(e.target.value.replace(/\D/g, "").length>0){
+        if(/^\d*$/.test(e.target.value)){
             const {name, value} = e.target
 
         setCollections((prevCollections)=>({
