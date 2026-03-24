@@ -4,13 +4,32 @@ import { collectionInput } from "../types/global";
 
 const CollectDataForm = () => {
     const[slide, setSlide] = useState(0);
-    const [collections, setCollections] = useState<collectionInput>()
+    const [collections, setCollections] = useState<collectionInput>({
+        tithes:'0',
+        offerings:'0',
+        sundaySchool:'0',
+        building:'0',
+        evangelism:'',
+        others:'0',
+        cashCollections:'0',
+        bankCollections:'0',
+        adults:'0',
+        children:'0',
+        visitors:'0',
+        newConverts:'0',
+        date:''
+    })
 
     const moveToNext =()=>{
         setSlide(slide+1)
     }
     const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
-        e.target.value.replace(/\D/g,"")
+        const {name, value} = e.target
+
+        setCollections((prevCollections)=>({
+            ...prevCollections,
+            [name]:value
+        }))
     }
     const moveToPrev =()=>{
         setSlide(slide-1)

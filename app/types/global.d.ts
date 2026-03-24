@@ -37,7 +37,7 @@ type collectionInput ={
     cashCollections:string,
     bankCollections:string,
     adults:string,
-    childrean:string,
+    children:string,
     visitors:string,
     newConverts:string,
     date:string
