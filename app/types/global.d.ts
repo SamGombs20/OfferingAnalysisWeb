@@ -27,3 +27,18 @@ type weeklySummary ={
     children:number,
     visitors:number
 }
+type collectionInput ={
+    tithes:string,
+    offerings:string,
+    sundaySchool:string,
+    building:string,
+    evangelism:string,
+    others:string,
+    cashCollections:string,
+    bankCollections:string,
+    adults:string,
+    childrean:string,
+    visitors:string,
+    newConverts:string,
+    date:string
+}

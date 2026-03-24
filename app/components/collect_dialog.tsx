@@ -1,8 +1,10 @@
 'use client'
 import { ChangeEvent, useState } from "react";
+import { collectionInput } from "../types/global";
 
 const CollectDataForm = () => {
     const[slide, setSlide] = useState(0);
+    const [collections, setCollections] = useState<collectionInput>()
 
     const moveToNext =()=>{
         setSlide(slide+1)
