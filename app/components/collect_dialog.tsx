@@ -40,28 +40,28 @@ const CollectDataForm = () => {
                 {slide==0 &&(<div>
                     <p className="text-2xl text-center">Givings</p>
                     <div className="input-div">
-                        <input onChange={onChange} type="number" placeholder="Tithes" className="user-input" />
+                        <input onChange={onChange} name="tithes" type="number" placeholder="Tithes" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" placeholder="Offerings" className="user-input" />
+                        <input type="number" name="offerings" placeholder="Offerings" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" placeholder="Sunday School" className="user-input" />
+                        <input type="number" name="sundaySchool" placeholder="Sunday School" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" placeholder="Building" className="user-input" />
+                        <input type="number" name="building" placeholder="Building" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" placeholder="Evangelism" className="user-input" />
+                        <input type="number" name="evangelism" placeholder="Evangelism" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" placeholder="Others" className="user-input" />
+                        <input type="number" name="others" placeholder="Others" className="user-input" />
                     </div>
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="Cash Collections" />
+                        <input type="number" name="cashCollections" className="user-input" placeholder="Cash Collections" />
                     </div>
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="Bank Collections" />
+                        <input type="number" name="bankCollections" className="user-input" placeholder="Bank Collections" />
                     </div>
                 </div>)}
 
@@ -69,21 +69,21 @@ const CollectDataForm = () => {
                     <div>
                     <p className="text-2xl text-center font-[500]">Attendance</p>
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="Adults" />
+                        <input type="number" name="adults" className="user-input" placeholder="Adults" />
                     </div>
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="Children" />
+                        <input type="number" name="children" className="user-input" placeholder="Children" />
                     </div>
 
 
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="Visitors" />
+                        <input type="number" name="visitors" className="user-input" placeholder="Visitors" />
                     </div>
                     <div className="input-div">
-                        <input type="number" className="user-input" placeholder="New Converts" />
+                        <input type="number" name="newConverts" className="user-input" placeholder="New Converts" />
                     </div>
                     <div className="input-div">
-                        <input type="date" className="user-input" placeholder="Date" />
+                        <input type="date" name="date" className="user-input" placeholder="Date" />
                     </div>
                 </div>
                 )}
