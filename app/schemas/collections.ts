@@ -1,8 +1,8 @@
 import z, { date } from "zod";
 
 export const WeeklyCollectionSchema = z.object({
-    tithes:z.string().trim().min(1, "Tithes should be more!"),
-    offerings:z.string().trim().min(1, "Offerings should be more!"),
+    tithes:z.string().trim().min(1, "Tithes should be more!").regex(/^\d+$/, "Must be a number"),
+    offerings:z.string().trim().min(1, "Offerings should be more!").regex(/^\d+$/),
     sundaySchool:z.string().trim().min(1, "Sunday School should have given more!"),
     building:z.string(),
     evangelism:z.string(),

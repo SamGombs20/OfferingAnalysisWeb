@@ -93,13 +93,15 @@ const CollectDataForm = () => {
 
                     <div className="input-div">
                         <input  type="text" {...register('visitors')}  className={`user-input ${errors.visitors ? 'error-inp':''}`} placeholder="Visitors" />
-                        {errors.}
+                        {errors.visitors && (<p className="error-txt">{errors.visitors.message}</p>)}
                     </div>
                     <div className="input-div">
-                        <input  type="text"  name="newConverts" className="user-input" placeholder="New Converts" />
+                        <input  type="text" {...register('newConverts')} className={`user-input ${errors.newConverts ? 'error-inp':''}`} placeholder="New Converts" />
+                        {errors.newConverts && (<p className="error-txt">{errors.newConverts.message}</p>)}
                     </div>
                     <div className="input-div">
-                        <input type="date" name="date" className="user-input" placeholder="Date" />
+                        <input type="date" {...register('date')} className={`user-input ${errors.date ? 'error-inp':''}`} placeholder="Date" />
+                        {errors.date && (<p className="error-txt">{errors.date.message}</p>)}
                     </div>
                 </div>
             )}
