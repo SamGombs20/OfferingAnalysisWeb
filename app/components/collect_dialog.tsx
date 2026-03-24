@@ -24,18 +24,19 @@ const CollectDataForm = () => {
         setSlide(slide + 1)
     }
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (/^\d*$/.test(e.target.value)) {
-            const { name, value } = e.target
+        const { name, value } = e.target
+        if (/^\d*$/.test(value)) {
+            
 
             setCollections((prevCollections) => ({
                 ...prevCollections,
                 [name]: value
             }))
         }
-        if(e.target.name =='date'){
+        if(name =='date'){
             setCollections((prevCollections)=>({
                 ...prevCollections,
-                [e.target.name]:e.target.value
+                [name]:value
             }))
         }
     }
