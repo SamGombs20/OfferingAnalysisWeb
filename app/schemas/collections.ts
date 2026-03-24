@@ -13,5 +13,5 @@ export const WeeklyCollectionSchema = z.object({
     children:z.string().min(1, "Certainly there were more children!").regex(/^\d+$/, "Must be a number"),
     visitors:z.string().regex(/^\d+$/, "Must be a number"),
     newConverts:z.string().regex(/^\d+$/, "Must be a number"),
-    date:z.string().min(1, "This is definately a wrong date!").regex(/^\d+$/, "Must be a number")
+    date:z.string().min(1, "This is definately a wrong date!")
 })
