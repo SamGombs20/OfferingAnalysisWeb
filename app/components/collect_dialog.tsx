@@ -44,7 +44,7 @@ const CollectDataForm = () => {
         setSlide(slide - 1)
     }
     const handleFormSubmit = () => {
-        console.log("Form submitted")
+        console.log(collections)
     }
     const positiveClick = () => {
         if (slide > 0) {
