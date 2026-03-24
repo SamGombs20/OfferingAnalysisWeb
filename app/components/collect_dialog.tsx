@@ -1,11 +1,14 @@
 'use client'
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const CollectDataForm = () => {
     const[slide, setSlide] = useState(0);
 
     const moveToNext =()=>{
         setSlide(slide+1)
+    }
+    const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
+        e.target.value.replace(/\D/g,"")
     }
     const moveToPrev =()=>{
         setSlide(slide-1)
@@ -35,7 +38,7 @@ const CollectDataForm = () => {
                 {slide==0 &&(<div>
                     <p className="text-2xl text-center">Givings</p>
                     <div className="input-div">
-                        <input type="number" placeholder="Tithes" className="user-input" />
+                        <input onChange={onChange} type="number" placeholder="Tithes" className="user-input" />
                     </div>
                     <div className="input-div">
                         <input type="number" placeholder="Offerings" className="user-input" />
