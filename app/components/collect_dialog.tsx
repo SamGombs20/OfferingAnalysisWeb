@@ -52,7 +52,7 @@ const CollectDataForm = () => {
                     {errors.offerings && (<p className="error-txt">{errors.offerings.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input type="text" name="sundaySchool" placeholder="Sunday School" className="user-input" />
+                    <input type="text" {...register('sundaySchool')} placeholder="Sunday School" className="user-input" />
                 </div>
                 <div className="input-div">
                     <input  type="text" name="building" placeholder="Building" className="user-input" />
