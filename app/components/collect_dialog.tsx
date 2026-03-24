@@ -4,6 +4,7 @@ import { WeeklyCollection } from "../types/global";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { WeeklyCollectionSchema } from "../schemas/collections";
+import { error } from "console";
 
 const CollectDataForm = () => {
     const [slide, setSlide] = useState(0);
@@ -52,22 +53,28 @@ const CollectDataForm = () => {
                     {errors.offerings && (<p className="error-txt">{errors.offerings.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input type="text" {...register('sundaySchool')} placeholder="Sunday School" className="user-input" />
+                    <input type="text" {...register('sundaySchool')} placeholder="Sunday School" className={`user-input ${errors.sundaySchool ? 'error-inp':''}`} />
+                    {errors.sundaySchool && (<p className="error-txt">{errors.sundaySchool.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input  type="text" name="building" placeholder="Building" className="user-input" />
+                    <input  type="text" {...register('building')} placeholder="Building" className={`user-input ${errors.building ? 'error-inp':''}`} />
+                    {errors.building && (<p className="error-txt">{errors.building.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input type="text" name="evangelism" placeholder="Evangelism" className="user-input" />
+                    <input type="text" {...register('evangelism')} placeholder="Evangelism" className={`user-input ${errors.evangelism ? 'error-inp':''}`} />
+                    {errors.evangelism && (<p className="error-txt">{errors.evangelism.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input  type="text" name="others" placeholder="Others" className="user-input" />
+                    <input  type="text" {...register('others')} placeholder="Others" className={`user-input ${errors.others ? 'error-inp':''}`} />
+                    {errors.others && (<p className="error-txt">{errors.others.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input  type="text" name="cashCollections" className="user-input" placeholder="Cash Collections" />
+                    <input  type="text" {...register('cashCollections')} className={`user-input ${errors.cashCollections ? 'error-inp':''}`} placeholder="Cash Collections" />
+                    {errors.cashCollections && (<p className="error-txt">{errors.cashCollections.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input  type="text"  name="bankCollections" className="user-input" placeholder="Bank Collections" />
+                    <input  type="text" {...register('bankCollections')} className={`user-input ${errors.bankCollections ? 'error-inp':''}`} placeholder="Bank Collections" />
+                    {errors.bankCollections && (<p className="error-txt">{errors.bankCollections.message}</p>)}
                 </div>
             </div>)}
 
@@ -75,15 +82,18 @@ const CollectDataForm = () => {
                 <div>
                     <p className="text-2xl text-center font-[500]">Attendance</p>
                     <div className="input-div">
-                        <input  type="text" name="adults" className="user-input" placeholder="Adults" />
+                        <input  type="text" {...register('adults')} className={`user-input ${errors.adults ? 'error-inp':''}`} placeholder="Adults" />
+                        {errors.adults && (<p className="error-txt">{errors.adults.message}</p>)}
                     </div>
                     <div className="input-div">
-                        <input  type="text"  name="children" className="user-input" placeholder="Children" />
+                        <input  type="text"  {...register('children')} className={`user-input ${errors.children? 'error-inp':''}`} placeholder="Children" />
+                        {errors.children && (<p className="error-txt">{errors.children.message}</p>)}
                     </div>
 
 
                     <div className="input-div">
-                        <input  type="text" name="visitors" className="user-input" placeholder="Visitors" />
+                        <input  type="text" {...register('visitors')}  className={`user-input ${errors.visitors ? 'error-inp':''}`} placeholder="Visitors" />
+                        {errors.}
                     </div>
                     <div className="input-div">
                         <input  type="text"  name="newConverts" className="user-input" placeholder="New Converts" />
