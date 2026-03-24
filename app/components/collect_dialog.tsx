@@ -6,53 +6,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { WeeklyCollectionSchema } from "../schemas/collections";
 
 const CollectDataForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<WeeklyCollection>({
-        resolver: zodResolver(WeeklyCollectionSchema),
-        mode: 'onChange'
-    }
-    )
     const [slide, setSlide] = useState(0);
-    const [collections, setCollections] = useState<WeeklyCollection>({
-        tithes: '',
-        offerings: '',
-        sundaySchool: '',
-        building: '',
-        evangelism: '',
-        others: '',
-        cashCollections: '',
-        bankCollections: '',
-        adults: '',
-        children: '',
-        visitors: '',
-        newConverts: '',
-        date: ''
+    const {register, handleSubmit, formState:{errors}} = useForm<WeeklyCollection>({
+        resolver:zodResolver(WeeklyCollectionSchema),
+        mode:'onChange'
     })
 
     const moveToNext = () => {
         setSlide(slide + 1)
     }
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        if (/^\d*$/.test(value)) {
 
-
-            setCollections((prevCollections) => ({
-                ...prevCollections,
-                [name]: value
-            }))
-        }
-        if (name == 'date') {
-            setCollections((prevCollections) => ({
-                ...prevCollections,
-                [name]: value
-            }))
-        }
-    }
     const moveToPrev = () => {
         setSlide(slide - 1)
     }
     const handleFormSubmit = () => {
-        console.log(collections)
+        console.log("form submitted")
     }
     const positiveClick = () => {
         if (slide > 0) {
@@ -76,29 +44,29 @@ const CollectDataForm = () => {
             {slide == 0 && (<div>
                 <p className="text-2xl text-center">Givings</p>
                 <div className="input-div">
-                    <input {...register('tithes')} onChange={(e)=>onChange(e)} value={collections.tithes} name="tithes" type="text" placeholder="Tithes" className={`user-input ${errors.tithes?.message ? 'error-inp' : ''}`} />
+                    <input {...register('tithes')} type="text" placeholder="Tithes" className={`user-input ${errors.tithes?.message? 'error-inp':''}`} />
                     {errors.tithes && (<p className="error-txt">{errors.tithes.message}</p>)}
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.offerings} name="offerings" placeholder="Offerings" className="user-input" />
+                    <input  type="text" {...register('offerings')} placeholder="Offerings" className={`user-input ${}`} />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.sundaySchool} name="sundaySchool" placeholder="Sunday School" className="user-input" />
+                    <input type="text" name="sundaySchool" placeholder="Sunday School" className="user-input" />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.building} name="building" placeholder="Building" className="user-input" />
+                    <input  type="text" name="building" placeholder="Building" className="user-input" />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.evangelism} name="evangelism" placeholder="Evangelism" className="user-input" />
+                    <input type="text" name="evangelism" placeholder="Evangelism" className="user-input" />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.others} name="others" placeholder="Others" className="user-input" />
+                    <input  type="text" name="others" placeholder="Others" className="user-input" />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.cashCollections} name="cashCollections" className="user-input" placeholder="Cash Collections" />
+                    <input  type="text" name="cashCollections" className="user-input" placeholder="Cash Collections" />
                 </div>
                 <div className="input-div">
-                    <input onChange={onChange} type="text" value={collections.bankCollections} name="bankCollections" className="user-input" placeholder="Bank Collections" />
+                    <input  type="text"  name="bankCollections" className="user-input" placeholder="Bank Collections" />
                 </div>
             </div>)}
 
@@ -106,21 +74,21 @@ const CollectDataForm = () => {
                 <div>
                     <p className="text-2xl text-center font-[500]">Attendance</p>
                     <div className="input-div">
-                        <input onChange={onChange} type="text" value={collections.adults} name="adults" className="user-input" placeholder="Adults" />
+                        <input  type="text" name="adults" className="user-input" placeholder="Adults" />
                     </div>
                     <div className="input-div">
-                        <input onChange={onChange} type="text" value={collections.children} name="children" className="user-input" placeholder="Children" />
+                        <input  type="text"  name="children" className="user-input" placeholder="Children" />
                     </div>
 
 
                     <div className="input-div">
-                        <input onChange={onChange} type="text" value={collections.visitors} name="visitors" className="user-input" placeholder="Visitors" />
+                        <input  type="text" name="visitors" className="user-input" placeholder="Visitors" />
                     </div>
                     <div className="input-div">
-                        <input onChange={onChange} type="text" value={collections.newConverts} name="newConverts" className="user-input" placeholder="New Converts" />
+                        <input  type="text"  name="newConverts" className="user-input" placeholder="New Converts" />
                     </div>
                     <div className="input-div">
-                        <input onChange={onChange} type="date" value={collections.date} name="date" className="user-input" placeholder="Date" />
+                        <input type="date" name="date" className="user-input" placeholder="Date" />
                     </div>
                 </div>
             )}
