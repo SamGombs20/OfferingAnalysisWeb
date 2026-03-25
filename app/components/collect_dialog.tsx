@@ -1,5 +1,5 @@
 'use client'
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { WeeklyCollection } from "../types/global";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +8,7 @@ import { error } from "console";
 
 const CollectDataForm = () => {
     const [slide, setSlide] = useState(0);
-    const {register, handleSubmit, formState:{errors}} = useForm<WeeklyCollection>({
+    const {register,trigger, handleSubmit, formState:{errors}} = useForm<WeeklyCollection>({
         resolver:zodResolver(WeeklyCollectionSchema),
         mode:'onChange'
     })
