@@ -75,7 +75,7 @@ const cardData = [
 const DashboardPage = () => {
   const [open, setOpen] = useState(false)
   const handleDialog = ()=>{
-    setOpen(!open)
+    setOpen(true)
   }
   return (
     <div className="my-5">
@@ -139,7 +139,7 @@ const DashboardPage = () => {
         <AttendancePieChart />
       </div>
 
-      <Dialog open={open} onClose={()=>setOpen(false)}>
+      <Dialog open={open} as="div" onClose={()=>setOpen(false)}>
         <CollectDataForm/>
       </Dialog>
     </div>
