@@ -4,7 +4,7 @@ import { useState } from "react";
 import AttendancePieChart from "../components/attendance_pie_chart";
 import AttendanceChart from "../components/attendance_trend_chart";
 import OfferingsChart from "../components/offering_bar_chart";
-import { Dialog } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import CollectDataForm from "../components/collect_dialog";
 
 const cardData = [
@@ -140,7 +140,9 @@ const DashboardPage = () => {
       </div>
 
       <Dialog open={open} as="div" onClose={()=>setOpen(false)}>
-        <CollectDataForm/>
+        <DialogPanel>
+          <CollectDataForm/>
+        </DialogPanel>
       </Dialog>
     </div>
   );
