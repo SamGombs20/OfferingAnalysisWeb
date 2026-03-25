@@ -4,6 +4,8 @@ import { useState } from "react";
 import AttendancePieChart from "../components/attendance_pie_chart";
 import AttendanceChart from "../components/attendance_trend_chart";
 import OfferingsChart from "../components/offering_bar_chart";
+import { Dialog } from "@headlessui/react";
+import CollectDataForm from "../components/collect_dialog";
 
 const cardData = [
   {
@@ -72,7 +74,9 @@ const cardData = [
 
 const DashboardPage = () => {
   const [open, setOpen] = useState(false)
-  
+  const handleDialog = ()=>{
+    setOpen(!open)
+  }
   return (
     <div className="my-5">
       <div>
@@ -99,7 +103,7 @@ const DashboardPage = () => {
           ))}
         </div>
       </div>
-      <button className="flex items-center border hover:bg-transparent hover:cursor-pointer hover:text-blue-700 transition-all duration-300 ease-in-out bg-blue-700 py-2 px-3 rounded-3xl text-white">
+      <button onClick={handleDialog} className="flex items-center border hover:bg-transparent hover:cursor-pointer hover:text-blue-700 transition-all duration-300 ease-in-out bg-blue-700 py-2 px-3 rounded-3xl text-white">
         <svg
           className="w-8 h-8"
           viewBox="0 0 24 24"
@@ -134,6 +138,10 @@ const DashboardPage = () => {
         </p>
         <AttendancePieChart />
       </div>
+
+      <Dialog open={open} onClose={()=>setOpen(false)}>
+        <CollectDataForm/>
+      </Dialog>
     </div>
   );
 };
