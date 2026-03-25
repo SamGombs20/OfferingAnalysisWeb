@@ -74,11 +74,22 @@ const cardData = [
 
 const DashboardPage = () => {
   const [open, setOpen] = useState(false)
-  const handleDialog = ()=>{
+  const handleDialog = () => {
     setOpen(true)
   }
   return (
     <div className="my-5">
+      <Dialog open={open} as="div" className="" onClose={() => setOpen(false)}>
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4">
+            <DialogPanel className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0">
+              <CollectDataForm onClose={()=>setOpen(false)}/>
+            </DialogPanel>
+          </div>
+        </div>
+
+
+      </Dialog>
       <div>
         <p className="text-4xl font-bold blue-txt">Dashboard</p>
         <div className="flex w-full gap-3 flex-wrap justify-evenly lg:w-3xl lg:justify-between mt-8 mb-8">
@@ -139,14 +150,7 @@ const DashboardPage = () => {
         <AttendancePieChart />
       </div>
 
-      <Dialog open={open} as="div" onClose={()=>setOpen(false)}>
-        <div className="flex min-h-full items-center justify-center p-4">
-          <DialogPanel className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0">
-          <CollectDataForm/>
-        </DialogPanel>
-        </div>
-        
-      </Dialog>
+
     </div>
   );
 };

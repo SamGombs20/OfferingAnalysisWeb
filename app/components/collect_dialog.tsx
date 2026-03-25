@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { FC, useState } from "react";
 import { WeeklyCollection } from "../types/global";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,7 +7,11 @@ import { WeeklyCollectionSchema } from "../schemas/collections";
 import { error } from "console";
 import { getFieldsForCurrentStep } from "../utils/utils";
 
-const CollectDataForm = () => {
+interface CollectDataFormProps {
+    onClose: () => void
+}
+
+const CollectDataForm: FC<CollectDataFormProps> = ({onClose}) => {
     const [slide, setSlide] = useState(0);
     const { register, trigger, handleSubmit, formState: { errors } } = useForm<WeeklyCollection>({
         resolver: zodResolver(WeeklyCollectionSchema),
@@ -36,7 +40,7 @@ const CollectDataForm = () => {
     }
     const negativeClick = () => {
         if (slide == 0) {
-            console.log('Close modal')
+            onClose()
         }
         else {
             moveToPrev()
@@ -109,7 +113,7 @@ const CollectDataForm = () => {
                 </div>
             )}
             <div className="flex justify-end gap-10 mt-5">
-                <button onClick={negativeClick} className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide == 0 ? "Close" : "Back"}</button>
+                <button onClick={negativeClick} type="button" className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide == 0 ? "Close" : "Back"}</button>
                 <button onClick={positiveClick} type="submit" className="transition-all ease-in-out duration-400 text-white border border-blue-700 rounded-xl py-1 px-4  bg-blue-700 hover:bg-transparent hover:text-blue-700">{slide == 1 ? 'Submit' : 'Next'}</button>
             </div>
         </form>
