@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import AttendancePieChart from "../components/attendance_pie_chart";
 import AttendanceChart from "../components/attendance_trend_chart";
 import OfferingsChart from "../components/offering_bar_chart";
@@ -70,6 +71,8 @@ const cardData = [
 ];
 
 const DashboardPage = () => {
+  const [open, setOpen] = useState(false)
+  
   return (
     <div className="my-5">
       <div>
