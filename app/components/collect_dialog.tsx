@@ -21,14 +21,14 @@ const CollectDataForm = () => {
     const moveToPrev = () => {
         setSlide(slide - 1)
     }
-    const handleFormSubmit = () => {
-        console.log(register)
+    const handleFormSubmit = (collections:WeeklyCollection) => {
+        console.log("submitted")
     }
     const positiveClick = async() => {
         
         const isValid = await trigger(getFieldsForCurrentStep(slide))
         if (isValid && slide > 0) {
-            handleFormSubmit()
+            handleSubmit(handleFormSubmit)
         }
         else if(isValid){
             moveToNext()
