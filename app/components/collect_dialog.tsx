@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { WeeklyCollectionSchema } from "../schemas/collections";
 import { error } from "console";
+import { getFieldsForCurrentStep } from "../utils/utils";
 
 const CollectDataForm = () => {
     const [slide, setSlide] = useState(0);
@@ -23,11 +24,13 @@ const CollectDataForm = () => {
     const handleFormSubmit = () => {
         console.log(register)
     }
-    const positiveClick = () => {
-        if (slide > 0) {
+    const positiveClick = async() => {
+        
+        const isValid = await trigger(getFieldsForCurrentStep(slide))
+        if (isValid && slide > 0) {
             handleFormSubmit()
         }
-        else {
+        else if(isValid){
             moveToNext()
         }
     }

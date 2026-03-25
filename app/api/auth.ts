@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { User, UserLogIn, UserRegisterAPI } from "../types/global";
 import { loginUser } from "../actions/auth";
-import { accessOptions, refreshOptions } from "@/utils/utils";
+import { accessOptions, refreshOptions } from "@/app/utils/utils";
 const authAPI = "https://offering-user-service.vercel.app/auth";
 const userAPI = "https://offering-user-service.vercel.app/users";
 
