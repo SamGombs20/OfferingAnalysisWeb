@@ -22,13 +22,13 @@ const CollectDataForm = () => {
         setSlide(slide - 1)
     }
     const handleFormSubmit = (collections:WeeklyCollection) => {
-        console.log("submitted")
+        console.log(collections)
     }
     const positiveClick = async() => {
         
         const isValid = await trigger(getFieldsForCurrentStep(slide))
         if (isValid && slide > 0) {
-            handleSubmit(handleFormSubmit)
+            return;
         }
         else if(isValid){
             moveToNext()
@@ -45,7 +45,8 @@ const CollectDataForm = () => {
     return (
         <div className="lg:w-xl">
 
-            {slide == 0 && (<div>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
+                {slide == 0 && (<div>
                 <p className="text-2xl text-center">Givings</p>
                 <div className="input-div">
                     <input {...register('tithes')} type="text" placeholder="Tithes" className={`user-input ${errors.tithes?.message? 'error-inp':''}`} />
@@ -110,8 +111,9 @@ const CollectDataForm = () => {
             )}
             <div className="flex justify-end gap-10 mt-5">
                 <button onClick={negativeClick} className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide == 0 ? "Close" : "Back"}</button>
-                <button onClick={positiveClick} className="transition-all ease-in-out duration-400 text-white border border-blue-700 rounded-xl py-1 px-4  bg-blue-700 hover:bg-transparent hover:text-blue-700">{slide == 1 ? 'Submit' : 'Next'}</button>
+                <button onClick={positiveClick} type="submit" className="transition-all ease-in-out duration-400 text-white border border-blue-700 rounded-xl py-1 px-4  bg-blue-700 hover:bg-transparent hover:text-blue-700">{slide == 1 ? 'Submit' : 'Next'}</button>
             </div>
+            </form>
         </div>
     )
 }
