@@ -81,8 +81,8 @@ const DashboardPage = () => {
     <div className="my-5">
       <Dialog open={open} as="div" className="relative z-10" onClose={() => setOpen(false)}>
         <DialogBackdrop className='fixed inset-0 bg-black/30'/>
-        <div className='fixed inset-0 flex items-center justify-center p-4'>
-            <DialogPanel className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0">
+        <div className='fixed inset-0 flex z-20 items-center justify-center p-4'>
+            <DialogPanel className="w-full max-w-md rounded-xl bg-white p-6 backdrop-blur-2xl shadow-xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0 overflow-y-scroll">
               <CollectDataForm onClose={() => setOpen(false)} />
             </DialogPanel>
           </div>

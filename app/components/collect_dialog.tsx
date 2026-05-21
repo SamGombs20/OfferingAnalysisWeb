@@ -48,7 +48,7 @@ const CollectDataForm: FC<CollectDataFormProps> = ({onClose}) => {
     }
     return (
 
-        <form onSubmit={handleSubmit(handleFormSubmit)}>
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="overflow-y-scroll max-h-[80vh]">
             {slide == 0 && (<div>
                 <p className="text-2xl text-center">Givings</p>
                 <div className="input-div">
@@ -112,7 +112,7 @@ const CollectDataForm: FC<CollectDataFormProps> = ({onClose}) => {
                     </div>
                 </div>
             )}
-            <div className="flex justify-end gap-10 mt-5">
+            <div className="flex justify-end gap-10 mt-5 pr-5">
                 <button onClick={negativeClick} type="button" className="transition-all duration-400 ease-in-out hover:bg-red-600 hover:text-white text-red-600 border rounded-xl py-1 px-4">{slide == 0 ? "Close" : "Back"}</button>
                 <button onClick={positiveClick} type="submit" className="transition-all ease-in-out duration-400 text-white border border-blue-700 rounded-xl py-1 px-4  bg-blue-700 hover:bg-transparent hover:text-blue-700">{slide == 1 ? 'Submit' : 'Next'}</button>
             </div>
