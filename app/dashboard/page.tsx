@@ -5,7 +5,7 @@ import AttendancePieChart from "../components/attendance_pie_chart";
 import AttendanceChart from "../components/attendance_trend_chart";
 import OfferingsChart from "../components/offering_bar_chart";
 import CollectDataForm from "../components/collect_dialog";
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 const cardData = [
   {
@@ -80,15 +80,12 @@ const DashboardPage = () => {
   return (
     <div className="my-5">
       <Dialog open={open} as="div" className="relative z-10" onClose={() => setOpen(false)}>
-        <div className="fixed inset-0 bg-black/30 " aria-hidden='true'>
-
-          <div className='fixed inset-0 flex items-center justify-center p-4'>
+        <DialogBackdrop className='fixed inset-0 bg-black/30'/>
+        <div className='fixed inset-0 flex items-center justify-center p-4'>
             <DialogPanel className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0">
-            <DialogTitle className="text-lg font-bold">Collect Data</DialogTitle>
               <CollectDataForm onClose={() => setOpen(false)} />
             </DialogPanel>
           </div>
-        </div>
       </Dialog>
       <div>
         <p className="text-4xl font-bold blue-txt">Dashboard</p>
