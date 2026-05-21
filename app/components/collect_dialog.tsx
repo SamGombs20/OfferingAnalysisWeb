@@ -87,7 +87,7 @@ const CollectDataForm: FC<CollectDataFormProps> = ({onClose}) => {
 
             {slide == 1 && (
                 <div>
-                    <p className="text-2xl text-center font-[500]">Attendance</p>
+                    <p className="text-2xl text-center font-medium">Attendance</p>
                     <div className="input-div">
                         <input type="text" {...register('adults')} className={`user-input ${errors.adults ? 'error-inp' : ''}`} placeholder="Adults" />
                         {errors.adults && (<p className="error-txt">{errors.adults.message}</p>)}

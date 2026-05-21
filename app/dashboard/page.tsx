@@ -106,7 +106,7 @@ const DashboardPage = () => {
                 </svg>
                 <p className="text-md">{item.title}</p>
               </div>
-              <p className="font-[600] text-3xl">{item.details}</p>
+              <p className="font-semibold text-3xl">{item.details}</p>
             </div>
           ))}
         </div>
